@@ -45,16 +45,12 @@
                 left: 100%;
             }
         }
-
-        .custom-bg {
-            background-image: url(<?= base_url('assets/image/nasa-rTZW4f02zY8-unsplash.jpg') ?>);
-        }
     </style>
     <title>Rokibul | <?= $page_title ?></title>
 </head>
 
 <body style="font-family: 'Roboto', sans-serif">
-    <div class="hidden md:block custom-bg h-52 bg-no-repeat bg-cover bg-center"></div>
+    <div class="hidden md:block h-52 bg-no-repeat bg-cover bg-center" style="background-image: url(<?= base_url('assets/image/') . $site_info['banner_image'] ?>)"></div>
     <!-- box content -->
     <div class="xl:max-w-[1200px] mx-auto mt-0 md:mt-[-104px] bg-gray-200 md:px-4 md:pt-4 md:pb-8 rounded md:shadow-lg">
         <div class="md:mt-[-38px]">
@@ -122,22 +118,24 @@
                             </div>
                             <!-- icon -->
                             <div class="flex justify-center gap-2 mb-3">
-                                <div class="bg-black rounded p-1">
-                                    <a href="<?= $site_info['link1'] ?>" target="_blank"> <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
-                                            <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
-                                        </svg></a>
-                                </div>
-                                <div class="bg-black rounded p-1">
+
+                                <a class="bg-black hover:bg-blue-500 rounded p-1" href="<?= $site_info['link1'] ?>" target="_blank">
+                                    <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
+                                        <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                                <a class="bg-black hover:bg-blue-400 rounded p-1" href="<?= $site_info['link2'] ?>" target="_blank">
                                     <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                         <path fill="currentColor" d="M12.186 8.672 18.743.947h-2.927l-5.005 5.9-4.44-5.9H0l7.434 9.876-6.986 8.23h2.927l5.434-6.4 4.82 6.4H20L12.186 8.672Zm-2.267 2.671L8.544 9.515 3.2 2.42h2.2l4.312 5.719 1.375 1.828 5.731 7.613h-2.2l-4.699-6.237Z" />
                                     </svg>
-                                </div>
-                                <div class="bg-black rounded p-1">
+                                </a>
+                                <a class="bg-black hover:bg-blue-500 rounded p-1" href="<?= $site_info['link3'] ?>" target="_blank">
                                     <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
                                         <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd" />
                                         <path d="M3 5.012H0V15h3V5.012Z" />
                                     </svg>
-                                </div>
+                                </a>
+
                             </div>
                             <!-- button -->
                             <div class="relative bottom-[-24px] flex justify-around">
@@ -168,7 +166,7 @@
     </div>
     <!-- footer -->
     <footer class="xl:w-[80%] mx-auto mt-11 md:p-4 p-2 bg-slate-300 md:bg-transparent">
-        <ul class="list-none flex flex-col justify-center md:flex-row">
+        <ul class="list-none flex flex-wrap justify-center ">
             <li>
                 <a class="group px-2 py-1 rounded flex items-center gap-1 text-xs " href="" target="_blank">
                     <span class="group-hover:text-sky-600">Link</span>
@@ -217,6 +215,15 @@
                     </svg>
                 </a>
             </li>
+            <li>
+                <a class="group px-2 py-1 rounded flex items-center gap-1 text-xs " href="" target="_blank">
+                    <span class="group-hover:text-sky-600">Link</span>
+                    <svg class="w-2 h-2 group-hover:text-sky-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
+                    </svg>
+                </a>
+            </li>
+            
         </ul>
         <div>
             <p class="text-xs text-center mt-2">© Rokibul islam , 2023</p>

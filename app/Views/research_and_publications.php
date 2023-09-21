@@ -3,43 +3,45 @@
         <h2 class="text-sky-600 text-lg font-bold mb-4">
             Conference Proceedings
         </h2>
-        <!-- box -->
-        <div class="mt-6">
-            <a href="" class="text-base font-bold mb-1">
-                Effect of solid volume fraction and tilt angle in a
-                quarter circular
-            </a>
-            <div class="text-sm mb-1">
-                <span class="text-sky-600 font-bold">Authors:</span>
-                <span>MM Rahman, S Mojumder, S Saha, S Mekhilef, R
-                    Saidur</span>
+        <?php foreach ($conference_publications as $item) : ?>
+            <!-- box -->
+            <div class="mt-6">
+                <a href="<?= $item['link'] ?>" target="_blank" class="text-base font-bold mb-1">
+                    <?= $item['title'] ?>
+                </a>
+                <div class="text-sm mb-1">
+                    <span class="text-sky-600 font-bold">Authors:</span>
+                    <span><?= $item['authors'] ?></span>
+                </div>
+                <div class="text-sm">
+                    <span class="text-sky-600 font-bold">Conference:</span>
+                    <span><?= $item['conference'] ?></span>
+                </div>
             </div>
-            <div class="text-sm">
-                <span class="text-sky-600 font-bold">Conference:</span>
-                <span>Journal of Applied Physics 118 (12)</span>
-            </div>
-        </div>
+            <!--/box -->
+        <?php endforeach ?>
     </div>
     <div class="last:pe-0 flex-1">
         <h2 class="text-sky-600 text-lg font-bold mb-4">
             Journal Publications
         </h2>
-        <!-- box -->
-        <div class="mt-6">
-            <a href="" class="text-base font-bold mb-1">
-                Effect of solid volume fraction and tilt angle in a
-                quarter circular
-            </a>
-            <div class="text-sm mb-1">
-                <span class="text-sky-600 font-bold">Authors:</span>
-                <span>MM Rahman, S Mojumder, S Saha, S Mekhilef, R
-                    Saidur</span>
+        <?php foreach ($journal_publications as $item) : ?>
+            <!-- box -->
+            <div class="mt-6">
+                <a href="<?= $item['link'] ?>" target="_blank" class="text-base font-bold mb-1">
+                    <?= $item['title'] ?>
+                </a>
+                <div class="text-sm mb-1">
+                    <span class="text-sky-600 font-bold">Authors:</span>
+                    <span><?= $item['authors'] ?></span>
+                </div>
+                <div class="text-sm">
+                    <span class="text-sky-600 font-bold">Journal:</span>
+                    <span><?= $item['journal'] ?></span>
+                </div>
             </div>
-            <div class="text-sm">
-                <span class="text-sky-600 font-bold">Journal:</span>
-                <span>Journal of Applied Physics 118 (12)</span>
-            </div>
-        </div>
+            <!--/box -->
+        <?php endforeach ?>
 
     </div>
 </div>
