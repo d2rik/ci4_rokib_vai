@@ -112,7 +112,7 @@
                         <div class="absolute w-full bottom-0">
                             <div class="text-center">
                                 <h1 class="text-3xl font-bold inline-block r-animation">
-                                    Rokibul Islam
+                                    <?= $site_info['name'] ?>
                                 </h1>
                             </div>
                             <div>
@@ -123,9 +123,9 @@
                             <!-- icon -->
                             <div class="flex justify-center gap-2 mb-3">
                                 <div class="bg-black rounded p-1">
-                                    <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
-                                        <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
-                                    </svg>
+                                    <a href="<?= $site_info['link1'] ?>" target="_blank"> <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
+                                            <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
+                                        </svg></a>
                                 </div>
                                 <div class="bg-black rounded p-1">
                                     <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -152,11 +152,10 @@
                         </div>
                         <img class="w-full" src="<?= base_url('assets/image/shape.png') ?>" alt="" />
                     </div>
-                    <img class="w-full" src="<?= base_url('assets/image/rokibul_islam.jpg') ?>" loading="lazy" alt="" />
+                    <img class="w-full" src="<?= base_url('assets/image/') . $site_info['profile_image'] ?>" loading="lazy" alt="" />
                 </div>
                 <section class="bg-white md:mt-0 px-4 py-5 md:h-[519px] md:overflow-auto md:overflow-x-hidden">
-                    <h1 class="font-bold text-md"><?= $sub_title ?></h1>
-                    <div class="border-b-2 w-24 mb-2 border-sky-600"></div>
+                    <h1 class="inline font-bold text-md border-b-2 border-sky-600"><?= $sub_title ?></h1>
                     <div class="border-b mb-2 border-gray-200"></div>
                     <!-- main content -->
                     <div class="mt-5">
@@ -237,7 +236,22 @@
     </script>
     <script>
         let typed = new Typed("#auto-type", {
-            strings: ["Researcher", "Writer", "Content Creator", "Philosopher"],
+
+
+            strings: [
+                <?php
+                $array = explode(',', $site_info['designation']);
+
+                // Enclose each element in double quotes
+                $quotedArray = array_map(function ($element) {
+                    return '"' . $element . '"';
+                }, $array);
+
+                // Use implode to join the elements with a comma
+                $string = implode(", ", $quotedArray);
+                echo $string;
+                ?>
+            ],
             typeSpeed: 100,
             backSpeed: 100,
             loop: true,

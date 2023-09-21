@@ -46,13 +46,16 @@ abstract class BaseController extends Controller
     /**
      * @return void
      */
+
+    protected $site_info;
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
-
+        $model = new \App\Models\Site_info_model();
+        $this->site_info = $model->get_profile();
         // E.g.: $this->session = \Config\Services::session();
     }
 }
