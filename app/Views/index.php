@@ -70,17 +70,17 @@
                         </div>
                         <ul class="list-none flex flex-col lg:flex-row">
                             <li>
-                                <a class=" <?= ($page_title == 'Home') ? 'bg-white text-sky-600' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-sky-600 text-sm" href="/">
+                                <a class=" <?= ($page_title == 'Home') ? 'bg-white text-sky-600' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-sky-600 text-sm" href="<?= base_url('/') ?>">
                                     Home</a>
                             </li>
                             <li>
-                                <a class=" <?= ($page_title == 'Academic information') ? 'bg-white text-sky-600' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-sky-600 text-sm" href="/academic_info">Academic Info</a>
+                                <a class=" <?= ($page_title == 'Academic information') ? 'bg-white text-sky-600' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-sky-600 text-sm" href="<?= base_url('/academic_info') ?>">Academic Info</a>
                             </li>
                             <li>
-                                <a class=" <?= ($page_title == 'Personal experience') ? 'bg-white text-sky-600' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-sky-600 text-sm" href="/personal_experience">Professional Experience</a>
+                                <a class=" <?= ($page_title == 'Professional experience') ? 'bg-white text-sky-600' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-sky-600 text-sm" href="<?= base_url('/professional_experience') ?>">Professional Experience</a>
                             </li>
                             <li>
-                                <a class="<?= ($page_title == 'Research and publications') ? 'bg-white text-sky-600' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-sky-600 text-sm" href="/research_and_publications">Research and Publications</a>
+                                <a class="<?= ($page_title == 'Research and publications') ? 'bg-white text-sky-600' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-sky-600 text-sm" href="<?= base_url('/research_and_publications') ?>">Research and Publications</a>
                             </li>
                             <li>
                                 <a class="px-2 py-1 rounded block hover:bg-white hover:text-sky-600 text-white text-sm" href="">Teaching and Mentoring</a>
@@ -92,10 +92,10 @@
                                 <a class="px-2 py-1 rounded block hover:bg-white hover:text-sky-600 text-white text-sm" href="">Resume</a>
                             </li>
                             <li>
-                                <a class="<?= ($page_title == 'Blog') ? 'bg-white text-sky-600' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-sky-600 text-sm" href="/blog">Blog</a>
+                                <a class="<?= ($page_title == 'Blog') ? 'bg-white text-sky-600' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-sky-600 text-sm" href="<?= base_url('/blog') ?>">Blog</a>
                             </li>
                             <li>
-                                <a class=" <?= ($page_title == 'Contact me') ? 'bg-white text-sky-600' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-sky-600 text-sm" href="/contact_me">Contact me</a>
+                                <a class=" <?= ($page_title == 'Contact me') ? 'bg-white text-sky-600' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-sky-600 text-sm" href="<?= base_url('/contact_me') ?>">Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -107,7 +107,7 @@
                 </nav>
             </header>
             <div class="flex flex-col md:flex-row md:items-start md:justify-center md:mt-6">
-                <div class="relative md:min-w-[400px] min-h-[520px] border-solid border-sky-700 border">
+                <div class="hidden lg:block relative md:min-w-[400px] min-h-[520px] border-solid border-sky-700 border">
                     <div class="absolute w-full bottom-0">
                         <div class="absolute w-full bottom-0">
                             <div class="text-center">
@@ -154,7 +154,7 @@
                     </div>
                     <img class="w-full" src="<?= base_url('assets/image/rokibul_islam.jpg') ?>" loading="lazy" alt="" />
                 </div>
-                <section class="bg-white mt-8 md:mt-0 px-4 py-5 md:h-[519px] md:overflow-auto md:overflow-x-hidden">
+                <section class="bg-white md:mt-0 px-4 py-5 md:h-[519px] md:overflow-auto md:overflow-x-hidden">
                     <h1 class="font-bold text-md"><?= $sub_title ?></h1>
                     <div class="border-b-2 w-24 mb-2 border-sky-600"></div>
                     <div class="border-b mb-2 border-gray-200"></div>
@@ -171,65 +171,49 @@
     <footer class="xl:w-[80%] mx-auto mt-11 md:p-4 p-2 bg-slate-300 md:bg-transparent">
         <ul class="list-none flex flex-col justify-center md:flex-row">
             <li>
-                <a class="px-2 py-1 rounded flex items-center gap-1 text-xs hover:text-sky-600" href="">
-                    Link
-                    <svg class="w-2 h-2 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                <a class="group px-2 py-1 rounded flex items-center gap-1 text-xs " href="" target="_blank">
+                    <span class="group-hover:text-sky-600">Link</span>
+                    <svg class="w-2 h-2 group-hover:text-sky-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
                     </svg>
                 </a>
             </li>
             <li>
-                <a class="px-2 py-1 rounded flex items-center gap-1 text-xs hover:text-sky-600" href="">
-                    Link
-                    <svg class="w-2 h-2 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                <a class="group px-2 py-1 rounded flex items-center gap-1 text-xs " href="" target="_blank">
+                    <span class="group-hover:text-sky-600">Link</span>
+                    <svg class="w-2 h-2 group-hover:text-sky-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
                     </svg>
                 </a>
             </li>
             <li>
-                <a class="px-2 py-1 rounded flex items-center gap-1 text-xs hover:text-sky-600" href="">
-                    Link
-                    <svg class="w-2 h-2 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                <a class="group px-2 py-1 rounded flex items-center gap-1 text-xs " href="" target="_blank">
+                    <span class="group-hover:text-sky-600">Link</span>
+                    <svg class="w-2 h-2 group-hover:text-sky-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
                     </svg>
                 </a>
             </li>
             <li>
-                <a class="px-2 py-1 rounded flex items-center gap-1 text-xs hover:text-sky-600" href="">
-                    Link
-                    <svg class="w-2 h-2 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                <a class="group px-2 py-1 rounded flex items-center gap-1 text-xs " href="" target="_blank">
+                    <span class="group-hover:text-sky-600">Link</span>
+                    <svg class="w-2 h-2 group-hover:text-sky-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
                     </svg>
                 </a>
             </li>
             <li>
-                <a class="px-2 py-1 rounded flex items-center gap-1 text-xs hover:text-sky-600" href="">
-                    Link
-                    <svg class="w-2 h-2 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                <a class="group px-2 py-1 rounded flex items-center gap-1 text-xs " href="" target="_blank">
+                    <span class="group-hover:text-sky-600">Link</span>
+                    <svg class="w-2 h-2 group-hover:text-sky-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
                     </svg>
                 </a>
             </li>
             <li>
-                <a class="px-2 py-1 rounded flex items-center gap-1 text-xs hover:text-sky-600" href="">
-                    Link
-                    <svg class="w-2 h-2 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
-                    </svg>
-                </a>
-            </li>
-            <li>
-                <a class="px-2 py-1 rounded flex items-center gap-1 text-xs hover:text-sky-600" href="">
-                    Link
-                    <svg class="w-2 h-2 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
-                    </svg>
-                </a>
-            </li>
-            <li>
-                <a class="px-2 py-1 rounded flex items-center gap-1 text-xs hover:text-sky-600" href="">
-                    Link
-                    <svg class="w-2 h-2 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                <a class="group px-2 py-1 rounded flex items-center gap-1 text-xs " href="" target="_blank">
+                    <span class="group-hover:text-sky-600">Link</span>
+                    <svg class="w-2 h-2 group-hover:text-sky-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
                     </svg>
                 </a>

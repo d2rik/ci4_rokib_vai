@@ -7,7 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'FrontEnd::home');
 $routes->get('/academic_info', 'FrontEnd::academic_info');
-$routes->get('/personal_experience', 'FrontEnd::personal_experience');
+$routes->get('/professional_experience', 'FrontEnd::professional_experience');
 $routes->get('/research_and_publications', 'FrontEnd::research_and_publications');
 $routes->get('/blog', 'FrontEnd::blog');
 $routes->get('/single_blog', 'FrontEnd::single_blog');
