@@ -15,7 +15,7 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#35A29F',
+                        primary: '#0284c7',
                     }
                 },
             },
