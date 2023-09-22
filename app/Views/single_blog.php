@@ -2,7 +2,7 @@
   <img class="rounded w-full" src="<?= base_url('assets/image/blog_image/') . $blog['thumbnail'] ?>" alt="" />
   <div class="mt-2">
     <div class="">
-      <span class="p-1 border border-sky-600 text-xs rounded-sm text-sky-600">
+      <span class="p-1 border border-primary text-xs rounded-sm text-primary">
         <?php
         $dateString = esc($blog['created_at']);
         $dateTime = new \DateTime($dateString);

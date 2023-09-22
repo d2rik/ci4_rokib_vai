@@ -1,5 +1,5 @@
 <div class="flex flex-col lg:flex-row gap-4">
-    <div class="w-full lg:w-72 flex-1 border-2 border-sky-600 shadow p-3 rounded">
+    <div class="w-full lg:w-72 flex-1 border-2 border-primary shadow p-3 rounded">
         <h3 class="text-lg font-bold">Keep In Touch</h3>
         <p class="text-base">
             Want to connect with me? ok let's talk!
