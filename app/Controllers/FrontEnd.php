@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use CodeIgniter\Exceptions\PageNotFoundException;
+
 class FrontEnd extends BaseController
 {
     public function home($page = 'home'): string
@@ -39,8 +41,8 @@ class FrontEnd extends BaseController
         $data['sub_title'] = strtoupper($page);
         $model = new \App\Models\Professional_experience_model();
         $data['professional_experience'] = $model->get_professional_experience();
-        
-        
+
+
         $data['main_content'] = view('professional_experience', $data);
         $data['site_info'] = $this->site_info;
         return view('index', $data);
@@ -49,13 +51,13 @@ class FrontEnd extends BaseController
     {
         $data['page_title'] = ucfirst($page);
         $data['sub_title'] = strtoupper($page);
-        
+
         $model = new \App\Models\Journal_publications_model();
         $data['journal_publications'] = $model->get_journal_publications();
         $model2 = new \App\Models\Conference_publications_model();
         $data['conference_publications'] = $model2->get_conference_publications();
 
-        $data['main_content'] = view('research_and_publications',$data);
+        $data['main_content'] = view('research_and_publications', $data);
         $data['site_info'] = $this->site_info;
         return view('index', $data);
     }
@@ -65,16 +67,31 @@ class FrontEnd extends BaseController
         $data['page_title'] = ucfirst($page);
         $data['sub_title'] = strtoupper($page);
 
-        $data['main_content'] = view('blog');
+        $model = new \App\Models\Blog_model();
+        $data['blog'] = $model->blog();
+
+        $data['main_content'] = view('blog', $data);
         $data['site_info'] = $this->site_info;
         return view('index', $data);
     }
-    public function single_blog($page = 'single blog'): string
+
+    public function show_blog($page = 'single blog'): string
     {
+
+        $uri = $this->request->getUri();
+        $slug = $uri->getSegment(2);
+        
         $data['page_title'] = ucfirst($page);
         $data['sub_title'] = strtoupper($page);
 
-        $data['main_content'] = view('single_blog');
+        $model = new \App\Models\Blog_model();
+        $data['blog'] = $model->blog($slug);
+
+        if (empty($data['blog'])) {
+            throw new PageNotFoundException('Cannot find the blog item: ' . $slug);
+        }
+
+        $data['main_content'] = view('single_blog', $data);
         $data['site_info'] = $this->site_info;
         return view('index', $data);
     }

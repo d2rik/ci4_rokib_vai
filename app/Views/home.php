@@ -1,3 +1,3 @@
 <p>
-    <?= nl2br($about['about']) ?>
+    <?= nl2br(esc($about['about'])) ?>
 </p>
