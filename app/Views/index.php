@@ -99,7 +99,7 @@
                 </nav>
             </header>
             <div class="flex flex-col md:flex-row md:items-start md:justify-center md:mt-6">
-                <div class="<?= (esc($page_title) == "Home") ? "" : "hidden"; ?> lg:block relative md:min-w-[400px] min-h-[520px] border-solid border-primary border">
+                <div class="<?= (esc($page_title) == "Home") ? "" : "hidden"; ?> lg:block relative md:w-[400px] min-h-[520px] border-solid border-primary border">
                     <div class="absolute w-full bottom-0">
                         <div class="absolute w-full bottom-0">
                             <div class="text-center">
@@ -221,7 +221,7 @@
 
         </ul>
         <div>
-            <p class="text-xs text-center mt-2">© Rokibul islam , 2023</p>
+            <p class="text-xs text-center mt-2">© <?= $site_info['name'] ?> , 2023</p>
         </div>
     </footer>
     <script>

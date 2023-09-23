@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Controllers\Admin;
+
+use App\Controllers\BaseController;
+
+class Contact extends BaseController
+{
+    public function index()
+    {
+        $page = "edit contact";
+
+        $data = [
+            'site_info' => $this->site_info,
+            'page_title' => ucfirst($page),
+        ];
+        $model = new \App\Models\Contact_model();
+        $data['contact_info'] = $model->get_contact();
+
+        $data['main_content'] = view('Admin/contact', $data);
+        return view('Admin/index', $data);
+    }
+    public function edit()
+    {
+        $page = "edit contact";
+
+        $data = [
+            'site_info' => $this->site_info,
+            'page_title' => ucfirst($page),
+        ];
+        $model = new \App\Models\Contact_model();
+
+        $requestMethod = $this->request->getMethod();
+        if ($requestMethod == "post") {
+            $_POST['id'] = 1;
+            $model->save($_POST);
+            $data['contact_info'] = $model->get_contact();
+        }
+        
+        $data['main_content'] = view('Admin/contact', $data);
+        return view('Admin/index', $data);
+    }
+}

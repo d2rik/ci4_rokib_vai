@@ -6,6 +6,7 @@ use CodeIgniter\Exceptions\PageNotFoundException;
 
 class FrontEnd extends BaseController
 {
+    
     public function home($page = 'home'): string
     {
         $sub_title = "about me";
@@ -14,7 +15,7 @@ class FrontEnd extends BaseController
         $data['sub_title'] = strtoupper($sub_title);
         $model = new \App\Models\About_model();
         $data['about'] = $model->get_about();
-        
+
         $data['main_content'] = view('home', $data);
 
         $data['site_info'] = $this->site_info;
@@ -81,7 +82,7 @@ class FrontEnd extends BaseController
 
         $uri = $this->request->getUri();
         $slug = $uri->getSegment(2);
-        
+
         $data['page_title'] = ucfirst($page);
         $data['sub_title'] = strtoupper($page);
 

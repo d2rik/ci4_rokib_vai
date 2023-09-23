@@ -45,7 +45,6 @@
                     <div class="">80+</div>
                     <div class="">Books read</div>
                 </div>
-
             </div>
         </div>
     </div>
