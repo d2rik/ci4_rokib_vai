@@ -47,6 +47,7 @@ abstract class BaseController extends Controller
      * @return void
      */
 
+    protected $theme_info;
     protected $site_info;
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
@@ -56,6 +57,8 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
         $model = new \App\Models\Site_info_model();
         $this->site_info = $model->get_profile();
+        $model2 = new \App\Models\Theme();
+        $this->site_info['theme'] = $model2->get_info();
         // E.g.: $this->session = \Config\Services::session();
     }
 }

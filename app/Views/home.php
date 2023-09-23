@@ -6,9 +6,17 @@
     </div>
     <div class="last:pe-0 flex-1">
         <div class="mt-1 flex flex-col gap-4">
-            <div class="flex justify-between border-b items-center"><span class="px-2 text-white font-bold bg-primary">Age:</span><span class=" font-bold text-primary">29</span></div>
-            <div class="flex justify-between border-b items-center"><span class="px-2 text-white font-bold bg-primary">Residence:</span><span class=" font-bold text-primary">USA</span></div>
-            <div class="flex justify-between border-b items-center"><span class="px-2 text-white font-bold bg-primary">Address:</span><span class=" font-bold text-primary">Dhaka, Bangladesh</span></div>
+            <div class="flex justify-between border-b items-center"><span class="px-2 text-white font-bold bg-primary">Age:</span>
+                <span class=" font-bold text-primary">
+                    <?php
+                    $dateOfBirth = new \DateTime($site_info['date_of_birth']);
+                    $currentDate = new \DateTime();
+                    $age = $currentDate->diff($dateOfBirth)->y;
+                    echo $age; ?>
+                </span>
+            </div>
+            <div class="flex justify-between border-b items-center"><span class="px-2 text-white font-bold bg-primary">Residence:</span><span class=" font-bold text-primary"><?= $contact_info['residence'] ?></span></div>
+            <div class="flex justify-between border-b items-center"><span class="px-2 text-white font-bold bg-primary">Address:</span><span class=" font-bold text-primary"><?= $contact_info['address'] ?></span></div>
         </div>
     </div>
 </div>
@@ -24,8 +32,8 @@
                             <path d="M16 14V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 0 0 0-2h-1v-2a2 2 0 0 0 2-2ZM4 2h2v12H4V2Zm8 16H3a1 1 0 0 1 0-2h9v2Z" />
                         </svg>
                     </div>
-                    <div class="">80+</div>
-                    <div class="">Books read</div>
+                    <div class=""><?= esc($about['fun_fact1_count']) ?></div>
+                    <div class=""><?= esc($about['fun_fact1']) ?></div>
                 </div>
                 <div class="flex px-2 py-10 border flex-col items-center">
                     <div class="p-2">
@@ -33,8 +41,8 @@
                             <path d="M16 14V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 0 0 0-2h-1v-2a2 2 0 0 0 2-2ZM4 2h2v12H4V2Zm8 16H3a1 1 0 0 1 0-2h9v2Z" />
                         </svg>
                     </div>
-                    <div class="">80+</div>
-                    <div class="">Books read</div>
+                    <div class=""><?= esc($about['fun_fact2_count']) ?></div>
+                    <div class=""><?= esc($about['fun_fact2']) ?></div>
                 </div>
                 <div class="flex px-2 py-10 border flex-col items-center">
                     <div class="p-2">
@@ -42,8 +50,8 @@
                             <path d="M16 14V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 0 0 0-2h-1v-2a2 2 0 0 0 2-2ZM4 2h2v12H4V2Zm8 16H3a1 1 0 0 1 0-2h9v2Z" />
                         </svg>
                     </div>
-                    <div class="">80+</div>
-                    <div class="">Books read</div>
+                    <div class=""><?= esc($about['fun_fact3_count']) ?></div>
+                    <div class=""><?= esc($about['fun_fact3']) ?></div>
                 </div>
             </div>
         </div>
@@ -57,7 +65,7 @@
             <svg class="w-12 h-12 text-primary rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
                 <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
             </svg>
-            <span class="mt-4 italic text-slate-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam modi illum repudiandae cumque, aliquid esse autem? Voluptate debitis itaque reprehenderit?</span>
+            <span class="mt-4 italic text-slate-500"><?= esc($about['quote']) ?></span>
         </div>
     </div>
 </div>

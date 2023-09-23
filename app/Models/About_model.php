@@ -12,4 +12,5 @@ class About_model extends Model
     {
         return $this->first();
     }
+    protected $allowedFields = ['about','quote','fun_fact1','fun_fact1_count','fun_fact2','fun_fact2_count','fun_fact3','fun_fact3_count','updated_at'];
 }

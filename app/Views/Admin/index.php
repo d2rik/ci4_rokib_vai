@@ -5,7 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
-    <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
+    <!-- <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '<?= $site_info['theme']['color'] ?>',
+                    }
+                }
+            }
+        }
+    </script>
     <title>Admin | <?= $page_title ?> | <?= $site_info['name'] ?></title>
 </head>
 
@@ -85,7 +97,7 @@
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                             <path d="M9 1.334C7.06.594 1.646-.84.293.653a1.158 1.158 0 0 0-.293.77v13.973c0 .193.046.383.134.55.088.167.214.306.366.403a.932.932 0 0 0 .5.147c.176 0 .348-.05.5-.147 1.059-.32 6.265.851 7.5 1.65V1.334ZM19.707.653C18.353-.84 12.94.593 11 1.333V18c1.234-.799 6.436-1.968 7.5-1.65a.931.931 0 0 0 .5.147.931.931 0 0 0 .5-.148c.152-.096.279-.235.366-.403.088-.167.134-.357.134-.55V1.423a1.158 1.158 0 0 0-.293-.77Z" />
                         </svg>
-                        <span class="flex-1 ml-3 text-left whitespace-nowrap">Edit Page</span>
+                        <span class="flex-1 ml-3 text-left whitespace-nowrap">Edit information</span>
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"></path>
                         </svg>
@@ -93,6 +105,9 @@
                     <ul id="blogdropdown" class="py-2 space-y-2 hidden">
                         <li>
                             <a href="<?= base_url('admin/contact') ?>" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Contact</a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url('admin/about') ?>" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">About</a>
                         </li>
                         <li>
                             <a href="<?= base_url('admin/theme') ?>" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Theme</a>
@@ -115,6 +130,11 @@
         </div>
     </aside>
     <div class="p-4 sm:ml-64  mt-14">
+        <?php if ($message = session('alert')) : ?>
+            <div class="alert alert-<?= $message['alert'] ?>">
+                <?= $message['message'] ?>
+            </div>
+        <?php endif; ?>
         <div class="bg-primary text-white p-2"><?= $page_title ?></div>
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg">
             <!-- main content here -->

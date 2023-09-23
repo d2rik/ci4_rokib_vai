@@ -4,41 +4,40 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 
-class Profile extends BaseController
+class About extends BaseController
 {
-
     public function index()
     {
-        $page = "edit profile";
+        $page = "edit about";
 
         $data = [
             'site_info' => $this->site_info,
             'page_title' => ucfirst($page),
-
         ];
-        $data['main_content'] = view('Admin/profile', $data);
+        $model = new \App\Models\About_model();
+        $data['about_info'] = $model->get_about();
+
+        $data['main_content'] = view('Admin/about', $data);
         return view('Admin/index', $data);
     }
     public function edit()
     {
+        $page = "edit about";
 
-        $page = "profile edit";
-        $site_model = new \App\Models\Site_info_model();
         $data = [
-            'site_info' => $site_model->get_profile(),
+            'site_info' => $this->site_info,
             'page_title' => ucfirst($page),
         ];
+        $model = new \App\Models\About_model();
 
         $requestMethod = $this->request->getMethod();
         if ($requestMethod == "post") {
-            $model = new \App\Models\Profile_model();
             $_POST['id'] = 1;
             $model->save($_POST);
-
-            $data['site_info'] = $site_model->get_profile();
+            $data['about_info'] = $model->get_about();
         }
-
-        $data['main_content'] = view('Admin/profile', $data);
+        
+        $data['main_content'] = view('Admin/about', $data);
         return view('Admin/index', $data);
     }
 }

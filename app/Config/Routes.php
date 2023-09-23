@@ -28,4 +28,7 @@ $routes->group('admin', function ($routes) {
     //contact
     $routes->get('contact','Admin\Contact::index');
     $routes->post('contact','Admin\Contact::edit');
+    //About
+    $routes->get('about','Admin\About::index');
+    $routes->post('about','Admin\About::edit');
 });
