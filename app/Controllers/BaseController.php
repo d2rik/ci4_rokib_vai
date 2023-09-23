@@ -59,6 +59,8 @@ abstract class BaseController extends Controller
         $this->site_info = $model->get_profile();
         $model2 = new \App\Models\Theme();
         $this->site_info['theme'] = $model2->get_info();
+        $model3 = new \App\Models\External_link_model();
+        $this->site_info['external_link'] = $model3->get_external_link();
         // E.g.: $this->session = \Config\Services::session();
     }
 }

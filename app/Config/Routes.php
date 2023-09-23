@@ -26,9 +26,16 @@ $routes->group('admin', function ($routes) {
     $routes->get('profile', 'Admin\Profile::index');
     $routes->post('profile', 'Admin\Profile::edit');
     //contact
-    $routes->get('contact','Admin\Contact::index');
-    $routes->post('contact','Admin\Contact::edit');
+    $routes->get('contact', 'Admin\Contact::index');
+    $routes->post('contact', 'Admin\Contact::edit');
     //About
-    $routes->get('about','Admin\About::index');
-    $routes->post('about','Admin\About::edit');
+    $routes->get('about', 'Admin\About::index');
+    $routes->post('about', 'Admin\About::edit');
+    //External Link
+    $routes->get('external_link_add', 'Admin\External_link::add');
+    $routes->post('external_link_add', 'Admin\External_link::add');
+    $routes->get('external_link', 'Admin\External_link::index');
+    $routes->get('external_link/(:num)', 'Admin\External_link::edit/$1');
+    $routes->post('external_link/(:num)', 'Admin\External_link::edit/$1');
+    $routes->get('external_link_delete/(:num)', 'Admin\External_link::delete/$1');
 });
