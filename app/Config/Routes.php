@@ -14,3 +14,5 @@ $routes->post('/getData', 'Dataaa::getData');
 $routes->get('/blog/(:segment)', 'FrontEnd::show_blog');
 $routes->get('/single_blog', 'FrontEnd::single_blog');
 $routes->get('/contact_me', 'FrontEnd::contact_me');
+// admin
+$routes->get('admin', 'Admin\Admin::index');

@@ -4,23 +4,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
+
     <script src="<?= base_url('assets/js/typed.js') ?>"></script>
     <script src="<?= base_url('assets/js/jquery.js') ?>"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0284c7',
-                    }
-                },
-            },
-        };
-    </script>
+    <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
     <style>
         .r-animation {
             position: relative;
@@ -124,7 +114,6 @@
                             </div>
                             <!-- icon -->
                             <div class="flex justify-center gap-2 mb-3">
-
                                 <a class="bg-black hover:bg-blue-500 rounded p-1" href="<?= esc($site_info['link1']) ?>" target="_blank">
                                     <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
                                         <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
