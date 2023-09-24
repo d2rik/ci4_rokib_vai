@@ -29,7 +29,7 @@ class FrontEnd extends BaseController
         $data['page_title'] = ucfirst($page);
         $data['sub_title'] = strtoupper($page);
         $model = new \App\Models\Educational_qualifications_model();
-        $data['educational_qualifications'] = $model->get_educational_qualifications();
+        $data['educational_qualifications'] = $model->get();
 
         $model = new \App\Models\Achievements_and_excellence();
         $data['achievements_and_excellence'] = $model->get_achievements_and_excellence();

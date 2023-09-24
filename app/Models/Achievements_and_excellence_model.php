@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Educational_qualifications_model extends Model
+class Achievements_and_excellence_model extends Model
 {
-    protected $table = 'educational_qualifications';
+    protected $table = 'achievements_and_excellence';
     protected $primaryKey = 'id';
     public function get($id = false)
     {
@@ -20,5 +20,5 @@ class Educational_qualifications_model extends Model
     {
         return $this->delete($id);
     }
-    protected $allowedFields = ['degree','subject','academy','session'];
+    protected $allowedFields = ['title', 'description'];
 }

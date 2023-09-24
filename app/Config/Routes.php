@@ -49,4 +49,31 @@ $routes->group('admin', function ($routes) {
     $routes->get('external_link_edit/(:num)', 'Admin\External_link::edit/$1');
     $routes->post('external_link_edit/(:num)', 'Admin\External_link::edit/$1');
     $routes->get('external_link_delete/(:num)', 'Admin\External_link::delete/$1');
+
+    //Educational Qualifications
+    $routes->get('educational_qualifications', 'Admin\Educational_qualifications::list');
+
+    $routes->get('educational_qualifications_add', 'Admin\Educational_qualifications::add');
+
+    $routes->get('educational_qualifications_edit/(:num)', 'Admin\Educational_qualifications::edit/$1');
+
+    $routes->post('educational_qualifications_edit/(:num)', 'Admin\Educational_qualifications::edit/$1');
+
+    $routes->post('educational_qualifications_add', 'Admin\Educational_qualifications::add');
+
+    $routes->get('educational_qualifications_delete/(:num)', 'Admin\Educational_qualifications::delete/$1');
+
+    //Achievements and excellence
+
+    $routes->get('achievements_and_excellence', 'Admin\Achievements_and_excellence::list');
+
+    $routes->get('achievements_and_excellence_add', 'Admin\Achievements_and_excellence::add');
+
+    $routes->get('achievements_and_excellence_edit/(:num)', 'Admin\Achievements_and_excellence::edit/$1');
+
+    $routes->post('achievements_and_excellence_edit/(:num)', 'Admin\Achievements_and_excellence::edit/$1');
+
+    $routes->post('achievements_and_excellence_add', 'Admin\Achievements_and_excellence::add');
+
+    $routes->get('achievements_and_excellence_delete/(:num)', 'Admin\Achievements_and_excellence::delete/$1');
 });
