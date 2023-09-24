@@ -1,9 +1,12 @@
 <div class="relative overflow-scroll h-screen shadow-md sm:rounded-lg">
+    <div class="my-3 px-4 flex justify-end">
+        <a class="bg-primary hover:shadow text-white py-1 px-2 rounded" href="<?= base_url('admin/external_link_add') ?>">Add</a>
+    </div>
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    ID
+                    SN
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Name
@@ -20,11 +23,11 @@
             </tr>
         </thead>
         <tbody>
-
+            <?php $serial = count($site_info['external_link']); ?>
             <?php foreach ($site_info['external_link'] as $row) : ?>
                 <tr class='bg-white border-b dark:bg-gray-900 dark:border-gray-700'>
                     <td class='px-6 py-4 w-40'>
-                        <?= $row['id'] ?>
+                        <?= $serial-- ?>
                     </td>
                     <td class='px-6 py-4'>
                         <?= $row['site_name'] ?>

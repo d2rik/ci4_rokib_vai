@@ -22,12 +22,7 @@ class About extends BaseController
     }
     public function edit()
     {
-        $page = "edit about";
 
-        $data = [
-            'site_info' => $this->site_info,
-            'page_title' => ucfirst($page),
-        ];
         $model = new \App\Models\About_model();
 
         $requestMethod = $this->request->getMethod();
@@ -35,9 +30,7 @@ class About extends BaseController
             $_POST['id'] = 1;
             $model->save($_POST);
             $data['about_info'] = $model->get_about();
+            return redirect()->to('/');
         }
-        
-        $data['main_content'] = view('Admin/about', $data);
-        return view('Admin/index', $data);
     }
 }

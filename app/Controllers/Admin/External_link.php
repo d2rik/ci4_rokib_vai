@@ -32,6 +32,7 @@ class External_link extends BaseController
         $requestMethod = $this->request->getMethod();
         if ($requestMethod == "post") {
             $model->save($_POST);
+            return redirect()->to('admin/external_link');
         }
         $data['main_content'] = view('Admin/external_link_add', $data);
         return view('Admin/index', $data);
@@ -51,25 +52,19 @@ class External_link extends BaseController
         if ($requestMethod == "post") {
             $_POST['id'] = $id;
             $model->save($_POST);
-            $data['external_link'] = $model->get_external_link($id);
+            return redirect()->to('admin/external_link');
         }
 
         $data['main_content'] = view('Admin/external_link', $data);
         return view('Admin/index', $data);
     }
-    public function delete($id)
+
+    public function delete($id = false)
     {
-        $page = "edit external website link";
-
-        $data = [
-            'site_info' => $this->site_info,
-            'page_title' => ucfirst($page),
-        ];
         $model = new \App\Models\External_link_model();
-        $model->del($id);
-        $data['external_link'] = $model->get_external_link($id);
-
-        $data['main_content'] = view('Admin/external_link_list', $data);
-        return view('Admin/index', $data);
+        if ($id) {
+            $model->del($id);
+        }
+        return redirect()->to('admin/external_link');
     }
 }

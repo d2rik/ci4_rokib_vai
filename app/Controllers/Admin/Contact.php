@@ -22,22 +22,14 @@ class Contact extends BaseController
     }
     public function edit()
     {
-        $page = "edit contact";
 
-        $data = [
-            'site_info' => $this->site_info,
-            'page_title' => ucfirst($page),
-        ];
         $model = new \App\Models\Contact_model();
-
         $requestMethod = $this->request->getMethod();
         if ($requestMethod == "post") {
             $_POST['id'] = 1;
             $model->save($_POST);
             $data['contact_info'] = $model->get_contact();
+            return redirect()->to('/contact_me');
         }
-        
-        $data['main_content'] = view('Admin/contact', $data);
-        return view('Admin/index', $data);
     }
 }

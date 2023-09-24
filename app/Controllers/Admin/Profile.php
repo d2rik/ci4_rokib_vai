@@ -21,24 +21,12 @@ class Profile extends BaseController
     }
     public function edit()
     {
-
-        $page = "profile edit";
-        $site_model = new \App\Models\Site_info_model();
-        $data = [
-            'site_info' => $site_model->get_profile(),
-            'page_title' => ucfirst($page),
-        ];
-
         $requestMethod = $this->request->getMethod();
         if ($requestMethod == "post") {
             $model = new \App\Models\Profile_model();
             $_POST['id'] = 1;
             $model->save($_POST);
-
-            $data['site_info'] = $site_model->get_profile();
+            return redirect()->to('/');
         }
-
-        $data['main_content'] = view('Admin/profile', $data);
-        return view('Admin/index', $data);
     }
 }
