@@ -32,7 +32,7 @@ class External_link extends BaseController
         $requestMethod = $this->request->getMethod();
         if ($requestMethod == "post") {
             $model->save($_POST);
-            return redirect()->to('admin/external_link');
+            return redirect()->to('admin/external_link_list');
         }
         $data['main_content'] = view('Admin/external_link_add', $data);
         return view('Admin/index', $data);
@@ -52,10 +52,10 @@ class External_link extends BaseController
         if ($requestMethod == "post") {
             $_POST['id'] = $id;
             $model->save($_POST);
-            return redirect()->to('admin/external_link');
+            return redirect()->to('admin/external_link_list');
         }
 
-        $data['main_content'] = view('Admin/external_link', $data);
+        $data['main_content'] = view('Admin/external_link_edit', $data);
         return view('Admin/index', $data);
     }
 
@@ -65,6 +65,6 @@ class External_link extends BaseController
         if ($id) {
             $model->del($id);
         }
-        return redirect()->to('admin/external_link');
+        return redirect()->to('admin/external_link_list');
     }
 }

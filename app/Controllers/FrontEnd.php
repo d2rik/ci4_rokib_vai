@@ -72,7 +72,7 @@ class FrontEnd extends BaseController
         $data['sub_title'] = strtoupper($page);
 
         $model = new \App\Models\Blog_model();
-        $data['blog'] = $model->blog();
+        $data['blog'] = $model->get_blog();
 
         $data['main_content'] = view('blog', $data);
         $data['site_info'] = $this->site_info;
@@ -89,7 +89,7 @@ class FrontEnd extends BaseController
         $data['sub_title'] = strtoupper($page);
 
         $model = new \App\Models\Blog_model();
-        $data['blog'] = $model->blog($slug);
+        $data['blog'] = $model->get_blog($slug);
 
         if (empty($data['blog'])) {
             throw new PageNotFoundException('Cannot find the blog item: ' . $slug);

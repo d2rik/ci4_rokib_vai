@@ -8,7 +8,7 @@ class Blog_model extends Model
 {
     protected $table = 'blog';
     protected $primaryKey = 'id';
-    public function blog($slug = false, $limit = 6, $offset = 0, )
+    public function get_blog($slug = false, $limit = 1, $offset = 0,)
     {
         if ($slug === false) {
             return $this->orderBy('id', 'DESC')->findAll($limit, $offset);
@@ -16,4 +16,14 @@ class Blog_model extends Model
 
         return $this->where(['slug' => $slug])->first();
     }
+    public function get_blog_admin()
+    {
+        return $this->orderBy('id', 'DESC')->findAll();
+    }
+
+    public function del($id = false)
+    {
+        return $this->delete($id);
+    }
+    protected $allowedFields = ['title', 'slug', 'blog', 'thumbnail'];
 }

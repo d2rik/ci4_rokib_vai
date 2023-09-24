@@ -19,12 +19,21 @@ $routes->group('admin', function ($routes) {
     //dashboard
     $routes->get('/', 'Admin\Dashboard::index');
     $routes->get('dashboard', 'Admin\Dashboard::index');
+    //Blog
+    $routes->get('blog_add', 'Admin\Blog::add');
+    $routes->post('blog_add', 'Admin\Blog::add');
+    $routes->get('blog_list', 'Admin\Blog::index');
+    $routes->get('blog_edit/(:num)', 'Admin\Blog::edit/$1');
+    $routes->post('blog_edit/(:num)', 'Admin\Blog::edit/$1');
+    $routes->get('blog_delete/(:num)', 'Admin\Blog::delete/$1');
     //theme
     $routes->get('theme', 'Admin\Theme::index');
     $routes->post('theme', 'Admin\Theme::edit');
     //profile
     $routes->get('profile', 'Admin\Profile::index');
     $routes->post('profile', 'Admin\Profile::edit');
+    $routes->get('profile_image', 'Admin\Profile::edit_profile_image');
+    $routes->post('profile_image', 'Admin\Profile::edit_profile_image');
     //contact
     $routes->get('contact', 'Admin\Contact::index');
     $routes->post('contact', 'Admin\Contact::edit');
@@ -34,8 +43,8 @@ $routes->group('admin', function ($routes) {
     //External Link
     $routes->get('external_link_add', 'Admin\External_link::add');
     $routes->post('external_link_add', 'Admin\External_link::add');
-    $routes->get('external_link', 'Admin\External_link::index');
-    $routes->get('external_link/(:num)', 'Admin\External_link::edit/$1');
-    $routes->post('external_link/(:num)', 'Admin\External_link::edit/$1');
+    $routes->get('external_link_list', 'Admin\External_link::index');
+    $routes->get('external_link_edit/(:num)', 'Admin\External_link::edit/$1');
+    $routes->post('external_link_edit/(:num)', 'Admin\External_link::edit/$1');
     $routes->get('external_link_delete/(:num)', 'Admin\External_link::delete/$1');
 });

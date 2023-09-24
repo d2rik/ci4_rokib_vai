@@ -1,4 +1,4 @@
-<div id="blogList" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+<div id="blogList" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
     <?php foreach ($blog as $item) : ?>
         <!-- box -->
         <div class="text-center">
@@ -44,8 +44,8 @@
 </div>
 <script>
     $(document).ready(function() {
-        let kk = 0;
-        let ll = 1;
+        let limit = 1;
+        let offset = 0;
 
         function more(limit, offset) {
             $.post('<?= base_url('/getData') ?>', {
@@ -55,13 +55,16 @@
                 $("#blogList").append(data);
             })
         }
-        $('#showMore').click(function() {
-            for (let i = 0; i < 6; i++) {
-                kk += 1;
-                more(ll, kk);
+
+        function callData() {
+            for (let i = 0; i < 5; i++) {
+                offset += 1;
+                more(limit, offset);
             }
-
-
+        }
+        callData();
+        $('#showMore').click(function() {
+            callData();
         });
     });
 </script>
