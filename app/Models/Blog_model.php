@@ -16,10 +16,15 @@ class Blog_model extends Model
 
         return $this->where(['slug' => $slug])->first();
     }
+    public function get_blog_edit($id)
+    {
+        return $this->where(['id' => $id])->first();
+    }
     public function get_blog_admin()
     {
         return $this->orderBy('id', 'DESC')->findAll();
     }
+
 
     public function del($id = false)
     {

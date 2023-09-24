@@ -59,4 +59,34 @@ class Profile extends BaseController
         $data['main_content'] = view('Admin/profile_image', $data);
         return view('Admin/index', $data);
     }
+    public function edit_banner_image()
+    {
+        $requestMethod = $this->request->getMethod();
+        if ($requestMethod == "post") {
+            $model = new \App\Models\Profile_model();
+            $file = $this->request->getFile('banner_image');
+            $file_extension = $file->getExtension();
+            $previousFilePath='./assets/image/banner.' . $file_extension;
+            if ($file->isValid()) {
+                if (file_exists($previousFilePath)) {
+                    unlink($previousFilePath);
+                }
+                $file->move('./assets/image', 'banner.' . $file_extension, false);
+            }
+            $file_name = $file->getName();
+            $_POST['id'] = 1;
+            $_POST['banner_image'] = $file_name;
+            $model->save($_POST);
+            return redirect()->to('/');
+        }
+        $page = "edit Banner Image";
+
+        $data = [
+            'site_info' => $this->site_info,
+            'page_title' => ucfirst($page),
+
+        ];
+        $data['main_content'] = view('Admin/banner_image', $data);
+        return view('Admin/index', $data);
+    }
 }

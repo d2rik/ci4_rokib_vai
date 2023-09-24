@@ -34,6 +34,8 @@ $routes->group('admin', function ($routes) {
     $routes->post('profile', 'Admin\Profile::edit');
     $routes->get('profile_image', 'Admin\Profile::edit_profile_image');
     $routes->post('profile_image', 'Admin\Profile::edit_profile_image');
+    $routes->get('banner_image', 'Admin\Profile::edit_banner_image');
+    $routes->post('banner_image', 'Admin\Profile::edit_banner_image');
     //contact
     $routes->get('contact', 'Admin\Contact::index');
     $routes->post('contact', 'Admin\Contact::edit');

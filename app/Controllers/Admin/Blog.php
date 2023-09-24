@@ -22,7 +22,7 @@ class Blog extends BaseController
     }
     public function add()
     {
-        $page = "Add external website link";
+        $page = "Add Blog";
 
         $data = [
             'site_info' => $this->site_info,
@@ -64,11 +64,24 @@ class Blog extends BaseController
             'page_title' => ucfirst($page),
         ];
         $model = new \App\Models\Blog_model();
-        $data['blog'] = $model->get_blog($id);
+        $data['blog'] = $model->get_blog_edit($id);
 
         $requestMethod = $this->request->getMethod();
         if ($requestMethod == "post") {
+            $item = $model->get_blog_edit($id);
+
+            $oldFile = $item['thumbnail'];
+            $newFile = $this->request->getFile('thumbnail');
+            $oldFilePath = "./assets/image/blog_image/" . $oldFile;
+            if ($newFile->isValid() && !$newFile->hasMoved()) {
+                $newName = $newFile->getRandomName();
+                $newFile->move('./assets/image/blog_image', $newName);
+                unlink($oldFilePath);
+            } else {
+                $newName = $oldFile;
+            }
             $_POST['id'] = $id;
+            $_POST['thumbnail'] = $newName;
             $model->save($_POST);
             return redirect()->to('admin/blog_list');
         }
@@ -80,8 +93,13 @@ class Blog extends BaseController
     public function delete($id = false)
     {
         $model = new \App\Models\Blog_model();
+        $item = $model->get_blog_edit($id);
+
+        $oldFile = $item['thumbnail'];
+        $oldFilePath = "./assets/image/blog_image/" . $oldFile;
         if ($id) {
             $model->del($id);
+            unlink($oldFilePath);
         }
         return redirect()->to('admin/blog_list');
     }

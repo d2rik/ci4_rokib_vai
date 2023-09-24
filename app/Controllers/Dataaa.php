@@ -22,7 +22,7 @@ class Dataaa extends BaseController
                     </a>
                     <div class="mt-2">
                         <div class="">
-                            <span class="p-1 border border-sky-600 text-xs rounded-sm text-sky-600">
+                            <span class="p-1 border border-primary text-xs rounded-sm text-primary">
                                 <?php
                                 $dateString = esc($item['created_at']);
                                 $dateTime = new \DateTime($dateString);
@@ -40,7 +40,7 @@ class Dataaa extends BaseController
                             <p>
                                 <?= esc(substr($item['blog'], 0, 80)) ?> ...
 
-                                <a href="<?= base_url('blog/') . esc($item['slug']) ?>" class="text-sky-600">See more</a>
+                                <a href="<?= base_url('blog/') . esc($item['slug']) ?>" class="text-primary">See more</a>
                             </p>
                         </div>
                     </div>
