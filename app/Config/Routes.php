@@ -14,8 +14,13 @@ $routes->post('getData', 'Dataaa::getData'); //ajax request
 $routes->get('blog/(:segment)', 'FrontEnd::show_blog');
 $routes->get('single_blog', 'FrontEnd::single_blog');
 $routes->get('contact_me', 'FrontEnd::contact_me');
+// $routes->get('register', 'FrontEnd::register');
+// $routes->post('register', 'FrontEnd::create_resister');
+$routes->get('login', 'FrontEnd::login');
+$routes->post('login', 'FrontEnd::match_login');
+$routes->get('admin/logout', 'FrontEnd::logout');
 // admin
-$routes->group('admin', function ($routes) {
+$routes->group('admin',['filter' => 'isLoggedIn'], function ($routes) {
     //dashboard
     $routes->get('/', 'Admin\Dashboard::index');
     $routes->get('dashboard', 'Admin\Dashboard::index');

@@ -1,3 +1,9 @@
+<?php
+// if (!session('admin')) {
+//     echo "<script>window.location.href='".base_url()."login';</script>";
+// }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +28,7 @@
 </head>
 
 <body>
+
     <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
         <div class="px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
@@ -44,7 +51,7 @@
                         <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">
                             <ul class="py-1" role="none">
                                 <li>
-                                    <button class="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Sign out</button>
+                                    <a href="<?= base_url("admin/logout") ?>" class="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Sign out</a>
                                 </li>
                                 <li>
                                     <a href="<?= base_url('admin/profile') ?>" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Profile info</a>
@@ -121,7 +128,7 @@
                     </ul>
                 </li>
                 <li>
-                    <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="member" data-collapse-toggle="blogdropdown" aria-expanded="false">
+                    <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="member" data-collapse-toggle="edit_dropdown" aria-expanded="false">
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                             <path d="M9 1.334C7.06.594 1.646-.84.293.653a1.158 1.158 0 0 0-.293.77v13.973c0 .193.046.383.134.55.088.167.214.306.366.403a.932.932 0 0 0 .5.147c.176 0 .348-.05.5-.147 1.059-.32 6.265.851 7.5 1.65V1.334ZM19.707.653C18.353-.84 12.94.593 11 1.333V18c1.234-.799 6.436-1.968 7.5-1.65a.931.931 0 0 0 .5.147.931.931 0 0 0 .5-.148c.152-.096.279-.235.366-.403.088-.167.134-.357.134-.55V1.423a1.158 1.158 0 0 0-.293-.77Z" />
                         </svg>
@@ -130,7 +137,7 @@
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"></path>
                         </svg>
                     </button>
-                    <ul id="blogdropdown" class="py-2 space-y-2 hidden">
+                    <ul id="edit_dropdown" class="py-2 space-y-2 hidden">
                         <li>
                             <a href="<?= base_url('admin/contact') ?>" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Contact</a>
                         </li>
@@ -146,11 +153,6 @@
         </div>
     </aside>
     <div class="p-4 sm:ml-64  mt-14">
-        <?php if ($message = session('alert')) : ?>
-            <div class="alert alert-<?= $message['alert'] ?>">
-                <?= $message['message'] ?>
-            </div>
-        <?php endif; ?>
         <div class="bg-primary text-white p-2"><?= $page_title ?></div>
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg">
             <!-- main content here -->

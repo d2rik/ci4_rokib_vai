@@ -41,7 +41,8 @@ abstract class BaseController extends Controller
      * Be sure to declare properties for any property fetch you initialized.
      * The creation of dynamic property is deprecated in PHP 8.2.
      */
-    // protected $session;
+    protected $session;
+    protected $validation;
 
     /**
      * @return void
@@ -53,7 +54,6 @@ abstract class BaseController extends Controller
     {
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
-
         // Preload any models, libraries, etc, here.
         $model = new \App\Models\Site_info_model();
         $this->site_info = $model->get_profile();
@@ -61,6 +61,8 @@ abstract class BaseController extends Controller
         $this->site_info['theme'] = $model2->get_info();
         $model3 = new \App\Models\External_link_model();
         $this->site_info['external_link'] = $model3->get_external_link();
-        // E.g.: $this->session = \Config\Services::session();
+
+        $this->session = \Config\Services::session();
+        $this->validation = \Config\Services::validation();
     }
 }

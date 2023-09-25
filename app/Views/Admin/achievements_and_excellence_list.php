@@ -1,6 +1,6 @@
 <div class="relative overflow-scroll h-screen shadow-md sm:rounded-lg">
     <div class="my-3 px-4 flex justify-end">
-        <a class="bg-primary hover:shadow text-white py-1 px-2 rounded" href="<?= base_url('admin/educational_qualifications_add') ?>">Add</a>
+        <a class="bg-primary hover:shadow text-white py-1 px-2 rounded" href="<?= base_url('admin/achievements_and_excellence_add') ?>">Add</a>
     </div>
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

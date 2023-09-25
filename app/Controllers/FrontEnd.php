@@ -6,11 +6,10 @@ use CodeIgniter\Exceptions\PageNotFoundException;
 
 class FrontEnd extends BaseController
 {
-    
+
     public function home($page = 'home'): string
     {
         $sub_title = "about me";
-
         $data['page_title'] = ucfirst($page);
         $data['sub_title'] = strtoupper($sub_title);
         $model = new \App\Models\About_model();
@@ -19,6 +18,7 @@ class FrontEnd extends BaseController
         $data['contact_info'] = $model->get_contact();
 
         $data['site_info'] = $this->site_info;
+
         $data['main_content'] = view('home', $data);
 
         return view('index', $data);
@@ -109,5 +109,77 @@ class FrontEnd extends BaseController
         $data['main_content'] = view('contact_me', $data);
         $data['site_info'] = $this->site_info;
         return view('index', $data);
+    }
+    public function register($page = 'Register')
+    {
+        helper('form');
+
+        $data['page_title'] = ucfirst($page);
+        $data['sub_title'] = strtoupper($page);
+
+        $data['main_content'] = view('register', $data);
+        $data['site_info'] = $this->site_info;
+        return view('index', $data);
+    }
+
+    public function create_resister()
+    {
+        helper('form');
+        if ($this->request->is('post')) {
+            if (!$this->validate([
+                'username' => 'required',
+                'password' => 'required',
+                'con_password' => 'required|matches[password]'
+            ])) {
+                return $this->register();
+            }
+
+            $validData = $this->validator->getValidated();
+            $validData['password'] = password_hash($validData['password'], PASSWORD_BCRYPT);
+
+            $model = new \App\Models\Admin_model();
+
+            $model->save($validData);
+            return redirect()->to('/admin');
+        }
+    }
+    public function login($page = 'Login')
+    {
+        helper('form');
+
+        $data['page_title'] = ucfirst($page);
+        $data['sub_title'] = strtoupper($page);
+
+        $data['main_content'] = view('login', $data);
+        $data['site_info'] = $this->site_info;
+        return view('index', $data);
+    }
+
+    public function match_login()
+    {
+        helper('form');
+        if ($this->request->is('post')) {
+            if (!$this->validate([
+                'username' => 'required',
+                'password' => 'required',
+            ])) {
+                return $this->login();
+            }
+            $validData = $this->validator->getValidated();
+            $model = new \App\Models\Admin_model();
+            $database_data = $model->get($validData['username']);
+            if ($database_data) {
+                if (password_verify($validData['password'], $database_data['password'])) {
+                    $this->session->set("admin", $database_data['username']);
+                    return redirect()->to('/admin');
+                }
+            }
+            
+            return $this->login();
+        }
+    }
+    public function logout(){
+        session_destroy();
+        return redirect()->to('/');
     }
 }
