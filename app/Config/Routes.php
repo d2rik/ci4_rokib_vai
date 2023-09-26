@@ -19,7 +19,7 @@ $routes->get('contact_me', 'FrontEnd::contact_me');
 $routes->get('login', 'FrontEnd::login');
 $routes->post('login', 'FrontEnd::match_login');
 // admin
-$routes->group('admin',['filter' => 'isLoggedIn'], function ($routes) {
+$routes->group('admin', ['filter' => 'isLoggedIn'], function ($routes) {
     //dashboard
     $routes->get('/', 'Admin\Dashboard::index');
     $routes->get('dashboard', 'Admin\Dashboard::index');
@@ -80,6 +80,21 @@ $routes->group('admin',['filter' => 'isLoggedIn'], function ($routes) {
     $routes->post('achievements_and_excellence_add', 'Admin\Achievements_and_excellence::add');
 
     $routes->get('achievements_and_excellence_delete/(:num)', 'Admin\Achievements_and_excellence::delete/$1');
+
+    //Professional Experience
+    $routes->get('professional_experience', 'Admin\Professional_experience::list');
+
+    $routes->get('professional_experience_add', 'Admin\Professional_experience::add');
+
+    $routes->get('professional_experience_edit/(:num)', 'Admin\Professional_experience::edit/$1');
+
+    $routes->post('professional_experience_edit/(:num)', 'Admin\Professional_experience::edit/$1');
+
+    $routes->post('professional_experience_add', 'Admin\Professional_experience::add');
+
+    $routes->get('professional_experience_delete/(:num)', 'Admin\Professional_experience::delete/$1');
+
+
     //login system
     $routes->get('logout', 'FrontEnd::logout');
     $routes->get('login_edit', 'FrontEnd::login_edit');

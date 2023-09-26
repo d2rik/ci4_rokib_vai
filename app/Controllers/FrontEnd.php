@@ -44,7 +44,7 @@ class FrontEnd extends BaseController
         $data['page_title'] = ucfirst($page);
         $data['sub_title'] = strtoupper($page);
         $model = new \App\Models\Professional_experience_model();
-        $data['professional_experience'] = $model->get_professional_experience();
+        $data['professional_experience'] = $model->get();
 
 
         $data['main_content'] = view('professional_experience', $data);

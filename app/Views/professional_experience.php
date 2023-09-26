@@ -6,9 +6,9 @@
             <?= $item['title'] ?>
         </h2>
 
-        <h5 class="flex items-center text-sm text-slate-400">
-            <span><?= $item['company'] ?></span><img src="./assets/image/<?= $item['company_logo'] ?>" alt="" />
-        </h5>
+        <div class="flex items-center text-sm text-slate-400">
+            <span><?= $item['company'] ?></span><img class=" w-9" src="./assets/image/<?= $item['company_logo'] ?>" alt="" />
+        </div>
 
         <h3 class="text-base mt-2">
             <span class="font-bold">Responsibilities:</span><?= $item['responsibilities'] ?><span></span>
