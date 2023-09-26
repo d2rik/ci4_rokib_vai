@@ -31,8 +31,8 @@ class FrontEnd extends BaseController
         $model = new \App\Models\Educational_qualifications_model();
         $data['educational_qualifications'] = $model->get();
 
-        $model = new \App\Models\Achievements_and_excellence();
-        $data['achievements_and_excellence'] = $model->get_achievements_and_excellence();
+        $model = new \App\Models\Achievements_and_excellence_model();
+        $data['achievements_and_excellence'] = $model->get();
 
         $data['main_content'] = view('academic_info', $data);
         $data['site_info'] = $this->site_info;
@@ -61,8 +61,8 @@ class FrontEnd extends BaseController
         $model2 = new \App\Models\Educational_qualifications_model();
         $data['educational_qualifications'] = $model2->get();
 
-        $model = new \App\Models\Achievements_and_excellence();
-        $data['achievements_and_excellence'] = $model->get_achievements_and_excellence();
+        $model = new \App\Models\Achievements_and_excellence_model();
+        $data['achievements_and_excellence'] = $model->get();
         
         $model = new \App\Models\Overall_skills_model();
         $data['overall_skills'] = $model->get();

@@ -11,7 +11,7 @@ class Achievements_and_excellence_model extends Model
     public function get($id = false)
     {
         if ($id === false) {
-            return $this->findAll();
+            return $this->orderBy('id', 'DESC')->findAll();
         }
 
         return $this->where(['id' => $id])->first();
