@@ -21,8 +21,7 @@ class Theme extends BaseController
 
     public function edit()
     {
-        $requestMethod = $this->request->getMethod();
-        if ($requestMethod == 'post') {
+        if ($this->request->is('post')) {
             $model = new \App\Models\Theme();
             $_POST['id'] = 1;
             if($model->save($_POST)){

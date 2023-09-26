@@ -30,9 +30,8 @@ class Achievements_and_excellence extends BaseController
         ];
 
         $model = new \App\Models\Achievements_and_excellence_model();
-        $requestMethod = $this->request->getMethod();
 
-        if ($requestMethod == "post") {
+        if ($this->request->is('post')) {
             if ($model->save($_POST)) {
                 session()->setFlashdata('success_alert', 'Add Successfully');
                 return redirect()->to('admin/achievements_and_excellence');
@@ -52,8 +51,7 @@ class Achievements_and_excellence extends BaseController
         $model = new \App\Models\Achievements_and_excellence_model();
         $data['item'] = $model->get($id);
 
-        $requestMethod = $this->request->getMethod();
-        if ($requestMethod == "post") {
+        if ($this->request->is('post')) {
             $_POST['id'] = $id;
             if ($model->save($_POST)) {
                 session()->setFlashdata('success_alert', 'Update Successfully');

@@ -30,9 +30,8 @@ class Journal_publications extends BaseController
         ];
 
         $model = new \App\Models\Journal_publications_model();
-        $requestMethod = $this->request->getMethod();
 
-        if ($requestMethod == "post") {
+        if ($this->request->is('post')) {
             if ($model->save($_POST)) {
                 session()->setFlashdata('success_alert', 'Add Successfully');
                 return redirect()->to('admin/journal_publications');
@@ -52,8 +51,7 @@ class Journal_publications extends BaseController
         $model = new \App\Models\Journal_publications_model();
         $data['item'] = $model->get($id);
 
-        $requestMethod = $this->request->getMethod();
-        if ($requestMethod == "post") {
+        if ($this->request->is('post')) {
             $_POST['id'] = $id;
             if ($model->save($_POST)) {
                 session()->setFlashdata('success_alert', 'Update Successfully');

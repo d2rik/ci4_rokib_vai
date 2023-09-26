@@ -30,9 +30,8 @@ class Professional_experience extends BaseController
         ];
 
         $model = new \App\Models\Professional_experience_model();
-        $requestMethod = $this->request->getMethod();
 
-        if ($requestMethod == "post") {
+        if ($this->request->is('post')) {
             $file = $this->request->getFile('company_logo');
             $newFileName = $file->getRandomName();
             if ($file->isValid() && !$file->hasMoved()) {
@@ -59,8 +58,7 @@ class Professional_experience extends BaseController
         $item = $model->get($id);
         $data['item'] = $model->get($id);
 
-        $requestMethod = $this->request->getMethod();
-        if ($requestMethod == "post") {
+        if ($this->request->is('post')) {
             $oldFile = $item['company_logo'];
             $newFile = $this->request->getFile('company_logo');
             $oldFilePath = "./assets/image/" . $oldFile;

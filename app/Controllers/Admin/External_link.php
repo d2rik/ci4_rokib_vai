@@ -50,8 +50,7 @@ class External_link extends BaseController
         $model = new \App\Models\External_link_model();
         $data['external_link'] = $model->get_external_link($id);
 
-        $requestMethod = $this->request->getMethod();
-        if ($requestMethod == "post") {
+        if ($this->request->is('post')) {
             $_POST['id'] = $id;
             if ($model->save($_POST)) {
                 session()->setFlashdata('success_alert', 'Update Successfully');

@@ -8,5 +8,9 @@ class Profile_model extends Model
 {
     protected $table = 'site_info';
     protected $primaryKey = 'id';
+    public function get_banner()
+    {
+        return $this->first();
+    }
     protected $allowedFields = ['name', 'date_of_birth', 'designation', 'profile_image', 'banner_image', 'link1', 'link2', 'link3', 'updated_at'];
 }

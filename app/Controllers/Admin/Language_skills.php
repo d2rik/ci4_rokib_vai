@@ -50,8 +50,7 @@ class Language_skills extends BaseController
         $model = new \App\Models\Language_skills_model();
         $data['item'] = $model->get($id);
 
-        $requestMethod = $this->request->getMethod();
-        if ($requestMethod == "post") {
+        if ($this->request->is('post')) {
             $_POST['id'] = $id;
             if ($model->save($_POST)) {
                 session()->setFlashdata('success_alert', 'Update Successfully');

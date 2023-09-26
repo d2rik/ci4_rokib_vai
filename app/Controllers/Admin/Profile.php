@@ -25,7 +25,7 @@ class Profile extends BaseController
         if ($requestMethod == "post") {
             $model = new \App\Models\Profile_model();
             $_POST['id'] = 1;
-            if($model->save($_POST)){
+            if ($model->save($_POST)) {
                 session()->setFlashdata('success_alert', 'Profile Update Successfully');
             }
             return redirect()->to('/admin');
@@ -33,26 +33,6 @@ class Profile extends BaseController
     }
     public function edit_profile_image()
     {
-        $requestMethod = $this->request->getMethod();
-        if ($requestMethod == "post") {
-            $model = new \App\Models\Profile_model();
-            $file = $this->request->getFile('profile_image');
-            $file_extension = $file->getExtension();
-            $previousFilePath='./assets/image/profile.' . $file_extension;
-            if ($file->isValid()) {
-                if (file_exists($previousFilePath)) {
-                    unlink($previousFilePath);
-                }
-                $file->move('./assets/image', 'profile.' . $file_extension, false);
-            }
-            $file_name = $file->getName();
-            $_POST['id'] = 1;
-            $_POST['profile_image'] = $file_name;
-            if($model->save($_POST)){
-                session()->setFlashdata('success_alert', 'Profile image Update Successfully');
-            }
-            return redirect()->to('/admin');
-        }
         $page = "edit profile Image";
 
         $data = [
@@ -60,26 +40,47 @@ class Profile extends BaseController
             'page_title' => ucfirst($page),
         ];
         $data['main_content'] = view('Admin/profile_image', $data);
+        if ($this->request->is('post')) {
+            $model = new \App\Models\Profile_model();
+            $file = $this->request->getFile('profile_image');
+            $item = $model->get_banner();
+            $oldFile = $item['profile_image'];
+            $oldFilePath = "./assets/image/" . $oldFile;
+            $newFileName = $file->getRandomName();
+            if ($file->isValid()) {
+                if (file_exists($oldFilePath)) {
+                    $file->move('./assets/image', $newFileName);
+                    unlink($oldFilePath);
+                }
+            }
+            $_POST['id'] = 1;
+            $_POST['profile_image'] = $newFileName;
+            if ($model->save($_POST)) {
+                session()->setFlashdata('success_alert', 'Profile image Update Successfully');
+            }
+            return redirect()->to('/admin');
+        }
+
         return view('Admin/index', $data);
     }
     public function edit_banner_image()
     {
-        $requestMethod = $this->request->getMethod();
-        if ($requestMethod == "post") {
+        if ($this->request->is('post')) {
             $model = new \App\Models\Profile_model();
             $file = $this->request->getFile('banner_image');
-            $file_extension = $file->getExtension();
-            $previousFilePath='./assets/image/banner.' . $file_extension;
+            $item = $model->get_banner();
+            $oldFile = $item['banner_image'];
+            $oldFilePath = "./assets/image/" . $oldFile;
+            $newFileName = $file->getRandomName();
             if ($file->isValid()) {
-                if (file_exists($previousFilePath)) {
-                    unlink($previousFilePath);
+                if (file_exists($oldFilePath)) {
+                    $file->move('./assets/image', $newFileName);
+                    unlink($oldFilePath);
                 }
-                $file->move('./assets/image', 'banner.' . $file_extension, false);
             }
-            $file_name = $file->getName();
             $_POST['id'] = 1;
-            $_POST['banner_image'] = $file_name;
-            if($model->save($_POST)){
+            $_POST['banner_image'] = $newFileName;
+            if ($model->save($_POST)) {
                 session()->setFlashdata('success_alert', 'Banner Image Update Successfully');
             }
             return redirect()->to('/admin');

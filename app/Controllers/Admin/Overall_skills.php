@@ -29,8 +29,8 @@ class Overall_skills extends BaseController
             'page_title' => ucfirst($page),
         ];
         $model = new \App\Models\Overall_skills_model();
-        $requestMethod = $this->request->getMethod();
-        if ($requestMethod == "post") {
+
+        if ($this->request->is('post')) {
             if ($model->save($_POST)) {
                 session()->setFlashdata('success_alert', 'Add Successfully');
                 return redirect()->to('admin/overall_skills_list');
@@ -50,8 +50,7 @@ class Overall_skills extends BaseController
         $model = new \App\Models\Overall_skills_model();
         $data['item'] = $model->get($id);
 
-        $requestMethod = $this->request->getMethod();
-        if ($requestMethod == "post") {
+        if ($this->request->is('post')) {
             $_POST['id'] = $id;
             if ($model->save($_POST)) {
                 session()->setFlashdata('success_alert', 'Update Successfully');

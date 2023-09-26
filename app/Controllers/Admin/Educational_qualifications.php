@@ -30,9 +30,7 @@ class Educational_qualifications extends BaseController
         ];
 
         $model = new \App\Models\Educational_qualifications_model();
-        $requestMethod = $this->request->getMethod();
-
-        if ($requestMethod == "post") {
+        if ($this->request->is('post')) {
             if ($model->save($_POST)) {
                 session()->setFlashdata('success_alert', 'Add Successfully');
                 return redirect()->to('admin/educational_qualifications');
@@ -52,8 +50,7 @@ class Educational_qualifications extends BaseController
         $model = new \App\Models\Educational_qualifications_model();
         $data['item'] = $model->get($id);
 
-        $requestMethod = $this->request->getMethod();
-        if ($requestMethod == "post") {
+        if ($this->request->is('post')) {
             $_POST['id'] = $id;
             if ($model->save($_POST)) {
                 session()->setFlashdata('success_alert', 'Update Successfully');

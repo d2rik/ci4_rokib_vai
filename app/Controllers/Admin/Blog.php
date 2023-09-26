@@ -30,22 +30,22 @@ class Blog extends BaseController
         ];
 
         $model = new \App\Models\Blog_model();
-        $requestMethod = $this->request->getMethod();
-        if ($requestMethod == "post") {
+
+        if ($this->request->is('post')) {
             $title = $this->request->getPost('title');
-            $slug = url_title("$title", '-', true);
+            $slug = uniqid();
 
             $file = $this->request->getFile('thumbnail');
+            $randomName = $file->getRandomName();
             if ($file->isValid() && !$file->hasMoved()) {
-                $file->move('./assets/image/blog_image');
+                $file->move('./assets/image/blog_image', $randomName);
             }
 
-            $originalName = $file->getClientName();
             $database_data = [
                 'title' => $title,
                 'slug' => $slug,
                 'blog' => $this->request->getPost('blog'),
-                'thumbnail' => $originalName,
+                'thumbnail' => $randomName,
             ];
 
             if ($model->save($database_data)) {
@@ -68,8 +68,7 @@ class Blog extends BaseController
         $model = new \App\Models\Blog_model();
         $data['blog'] = $model->get_blog_edit($id);
 
-        $requestMethod = $this->request->getMethod();
-        if ($requestMethod == "post") {
+        if ($this->request->is('post')) {
             $item = $model->get_blog_edit($id);
 
             $oldFile = $item['thumbnail'];
