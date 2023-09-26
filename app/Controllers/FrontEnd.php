@@ -57,7 +57,7 @@ class FrontEnd extends BaseController
         $data['sub_title'] = strtoupper($page);
 
         $model = new \App\Models\Journal_publications_model();
-        $data['journal_publications'] = $model->get_journal_publications();
+        $data['journal_publications'] = $model->get();
         $model2 = new \App\Models\Conference_publications_model();
         $data['conference_publications'] = $model2->get_conference_publications();
 

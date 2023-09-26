@@ -94,6 +94,18 @@ $routes->group('admin', ['filter' => 'isLoggedIn'], function ($routes) {
 
     $routes->get('professional_experience_delete/(:num)', 'Admin\Professional_experience::delete/$1');
 
+    //Journal Publications
+    $routes->get('journal_publications', 'Admin\Journal_publications::list');
+
+    $routes->get('journal_publications_add', 'Admin\Journal_publications::add');
+
+    $routes->get('journal_publications_edit/(:num)', 'Admin\Journal_publications::edit/$1');
+
+    $routes->post('journal_publications_edit/(:num)', 'Admin\Journal_publications::edit/$1');
+
+    $routes->post('journal_publications_add', 'Admin\Journal_publications::add');
+
+    $routes->get('journal_publications_delete/(:num)', 'Admin\Journal_publications::delete/$1');
 
     //login system
     $routes->get('logout', 'FrontEnd::logout');

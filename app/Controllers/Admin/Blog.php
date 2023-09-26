@@ -8,7 +8,7 @@ class Blog extends BaseController
 {
     public function index()
     {
-        $page = "list of external website link";
+        $page = "list of Blog";
 
         $data = [
             'site_info' => $this->site_info,
@@ -59,7 +59,7 @@ class Blog extends BaseController
 
     public function edit($id)
     {
-        $page = "edit external website link";
+        $page = "edit Blog";
 
         $data = [
             'site_info' => $this->site_info,

@@ -8,8 +8,17 @@ class Journal_publications_model extends Model
 {
     protected $table = 'journal_publications';
     protected $primaryKey = 'id';
-    public function get_journal_publications()
+    public function get($id = false)
     {
-        return $this->findAll();
+        if ($id === false) {
+            return $this->orderBy('id', 'DESC')->findAll();
+        }
+
+        return $this->where(['id' => $id])->first();
     }
+    public function del($id = false)
+    {
+        return $this->delete($id);
+    }
+    protected $allowedFields = ['title','link','authors','journal'];
 }
