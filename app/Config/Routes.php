@@ -13,6 +13,7 @@ $routes->get('blog', 'FrontEnd::blog');
 $routes->post('getData', 'Dataaa::getData'); //ajax request
 $routes->get('blog/(:segment)', 'FrontEnd::show_blog');
 $routes->get('single_blog', 'FrontEnd::single_blog');
+$routes->get('resume', 'FrontEnd::resume');
 $routes->get('contact_me', 'FrontEnd::contact_me');
 // $routes->get('register', 'FrontEnd::register');
 // $routes->post('register', 'FrontEnd::create_resister');
@@ -119,6 +120,22 @@ $routes->group('admin', ['filter' => 'isLoggedIn'], function ($routes) {
     $routes->post('conference_publications_add', 'Admin\Conference_publications::add');
 
     $routes->get('conference_publications_delete/(:num)', 'Admin\Conference_publications::delete/$1');
+
+    //Overall Skills
+    $routes->get('overall_skills_add', 'Admin\Overall_skills::add');
+    $routes->post('overall_skills_add', 'Admin\Overall_skills::add');
+    $routes->get('overall_skills_list', 'Admin\Overall_skills::index');
+    $routes->get('overall_skills_edit/(:num)', 'Admin\Overall_skills::edit/$1');
+    $routes->post('overall_skills_edit/(:num)', 'Admin\Overall_skills::edit/$1');
+    $routes->get('overall_skills_delete/(:num)', 'Admin\Overall_skills::delete/$1');
+
+    //Language Skills
+    $routes->get('language_skills_add', 'Admin\Language_skills::add');
+    $routes->post('language_skills_add', 'Admin\Language_skills::add');
+    $routes->get('language_skills_list', 'Admin\Language_skills::index');
+    $routes->get('language_skills_edit/(:num)', 'Admin\Language_skills::edit/$1');
+    $routes->post('language_skills_edit/(:num)', 'Admin\Language_skills::edit/$1');
+    $routes->get('language_skills_delete/(:num)', 'Admin\Language_skills::delete/$1');
 
     //login system
     $routes->get('logout', 'FrontEnd::logout');

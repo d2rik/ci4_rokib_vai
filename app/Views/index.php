@@ -94,7 +94,7 @@
                                 <a class="px-2 py-1 rounded block hover:bg-white hover:text-primary text-white text-sm" href="">Social Works</a>
                             </li>
                             <li>
-                                <a class="px-2 py-1 rounded block hover:bg-white hover:text-primary text-white text-sm" href="">Resume</a>
+                                <a class=" <?= (esc($page_title) == 'Resume') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary text-sm" href="<?= base_url('/resume') ?>">Resume</a>
                             </li>
                             <li>
                                 <a class="<?= (esc($page_title) == 'Blog') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary text-sm" href="<?= base_url('/blog') ?>">Blog</a>

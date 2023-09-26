@@ -51,6 +51,29 @@ class FrontEnd extends BaseController
         $data['site_info'] = $this->site_info;
         return view('index', $data);
     }
+    public function resume($page = 'resume'): string
+    {
+        $data['page_title'] = ucfirst($page);
+        $data['sub_title'] = strtoupper($page);
+        $model = new \App\Models\Professional_experience_model();
+        $data['professional_experience'] = $model->get();
+
+        $model2 = new \App\Models\Educational_qualifications_model();
+        $data['educational_qualifications'] = $model2->get();
+
+        $model = new \App\Models\Achievements_and_excellence();
+        $data['achievements_and_excellence'] = $model->get_achievements_and_excellence();
+        
+        $model = new \App\Models\Overall_skills_model();
+        $data['overall_skills'] = $model->get();
+        $model = new \App\Models\Language_skills_model();
+        $data['language_skills'] = $model->get();
+        
+
+        $data['main_content'] = view('resume', $data);
+        $data['site_info'] = $this->site_info;
+        return view('index', $data);
+    }
     public function research_and_publications($page = 'research and publications'): string
     {
         $data['page_title'] = ucfirst($page);
