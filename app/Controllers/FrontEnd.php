@@ -59,7 +59,7 @@ class FrontEnd extends BaseController
         $model = new \App\Models\Journal_publications_model();
         $data['journal_publications'] = $model->get();
         $model2 = new \App\Models\Conference_publications_model();
-        $data['conference_publications'] = $model2->get_conference_publications();
+        $data['conference_publications'] = $model2->get();
 
         $data['main_content'] = view('research_and_publications', $data);
         $data['site_info'] = $this->site_info;

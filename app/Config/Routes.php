@@ -107,6 +107,19 @@ $routes->group('admin', ['filter' => 'isLoggedIn'], function ($routes) {
 
     $routes->get('journal_publications_delete/(:num)', 'Admin\Journal_publications::delete/$1');
 
+    //Conference Publications
+    $routes->get('conference_publications', 'Admin\Conference_publications::list');
+
+    $routes->get('conference_publications_add', 'Admin\Conference_publications::add');
+
+    $routes->get('conference_publications_edit/(:num)', 'Admin\Conference_publications::edit/$1');
+
+    $routes->post('conference_publications_edit/(:num)', 'Admin\Conference_publications::edit/$1');
+
+    $routes->post('conference_publications_add', 'Admin\Conference_publications::add');
+
+    $routes->get('conference_publications_delete/(:num)', 'Admin\Conference_publications::delete/$1');
+
     //login system
     $routes->get('logout', 'FrontEnd::logout');
     $routes->get('login_edit', 'FrontEnd::login_edit');
