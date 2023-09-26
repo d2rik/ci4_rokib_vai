@@ -39,7 +39,7 @@
                         <a href="<?= base_url('admin/external_link_edit/') . $row['id'] ?>" class='hover:bg-blue-50 py-2 px-3 rounded-lg font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
                     </td>
                     <td class='px-6 py-4'>
-                        <a href="<?= base_url('admin/external_link_delete/') . $row['id'] ?>" class=' hover:bg-red-600 py-2 px-3 rounded-lg font-medium text-red-600 hover:text-white hover:underline'>Delete</a>
+                        <button onclick='sure("<?= base_url("admin/external_link_delete/") . $row["id"] ?>")' class=' hover:bg-red-600 py-2 px-3 rounded-lg font-medium text-red-600 hover:text-white hover:underline'>Delete</button>
                     </td>
                 </tr>
             <?php endforeach ?>
@@ -49,15 +49,14 @@
 <script>
     function sure(link) {
         swal({
-            title: "Going to Trash!",
-            text: "Are you sure?",
+            title: "Going to Permanently Delete!",
             icon: "warning",
             buttons: true,
             dangerMode: true,
         }).then((willDelete) => {
             if (willDelete) {
                 window.location.href = link;
-                swal("Member Trash!", {
+                swal("Permanently Deleted!", {
                     icon: "success",
                 });
             }

@@ -110,39 +110,39 @@ class FrontEnd extends BaseController
         $data['site_info'] = $this->site_info;
         return view('index', $data);
     }
-    public function register($page = 'Register')
-    {
-        helper('form');
+    // public function register($page = 'Register')
+    // {
+    //     helper('form');
 
-        $data['page_title'] = ucfirst($page);
-        $data['sub_title'] = strtoupper($page);
+    //     $data['page_title'] = ucfirst($page);
+    //     $data['sub_title'] = strtoupper($page);
 
-        $data['main_content'] = view('register', $data);
-        $data['site_info'] = $this->site_info;
-        return view('index', $data);
-    }
+    //     $data['main_content'] = view('register', $data);
+    //     $data['site_info'] = $this->site_info;
+    //     return view('index', $data);
+    // }
 
-    public function create_resister()
-    {
-        helper('form');
-        if ($this->request->is('post')) {
-            if (!$this->validate([
-                'username' => 'required',
-                'password' => 'required',
-                'con_password' => 'required|matches[password]'
-            ])) {
-                return $this->register();
-            }
+    // public function create_resister()
+    // {
+    //     helper('form');
+    //     if ($this->request->is('post')) {
+    //         if (!$this->validate([
+    //             'username' => 'required',
+    //             'password' => 'required',
+    //             'con_password' => 'required|matches[password]'
+    //         ])) {
+    //             return $this->register();
+    //         }
 
-            $validData = $this->validator->getValidated();
-            $validData['password'] = password_hash($validData['password'], PASSWORD_BCRYPT);
+    //         $validData = $this->validator->getValidated();
+    //         $validData['password'] = password_hash($validData['password'], PASSWORD_BCRYPT);
 
-            $model = new \App\Models\Admin_model();
+    //         $model = new \App\Models\Admin_model();
 
-            $model->save($validData);
-            return redirect()->to('/admin');
-        }
-    }
+    //         $model->save($validData);
+    //         return redirect()->to('/admin');
+    //     }
+    // }
     public function login($page = 'Login')
     {
         helper('form');
@@ -171,15 +171,79 @@ class FrontEnd extends BaseController
             if ($database_data) {
                 if (password_verify($validData['password'], $database_data['password'])) {
                     $this->session->set("admin", $database_data['username']);
+                    session()->setFlashdata('success_alert', 'Successfully Logged in');
                     return redirect()->to('/admin');
+                } else {
+                    session()->setFlashdata('danger_alert', 'Username and Password Do Not Match');
+                    session_destroy();
+                    return redirect()->to('/login');
                 }
+            } else {
+                session()->setFlashdata('danger_alert', 'Username and Password Do Not Match');
+                session_destroy();
+                return redirect()->to('/login');
             }
-            
-            return $this->login();
         }
     }
-    public function logout(){
+    public function logout()
+    {
         session_destroy();
         return redirect()->to('/');
+    }
+
+    public function login_edit($page = "Change Login Password & Username")
+    {
+        helper('form');
+
+        $data['page_title'] = ucfirst($page);
+        $data['sub_title'] = strtoupper($page);
+
+        $data['main_content'] = view('Admin/login_edit', $data);
+        $data['site_info'] = $this->site_info;
+        return view('Admin/index', $data);
+    }
+    public function login_edit_match()
+    {
+        helper('form');
+        if ($this->request->is('post')) {
+            if (!$this->validate([
+                'old_username' => 'required',
+                'old_password' => 'required',
+                'new_username' => 'required',
+                'new_password' => 'required',
+                'confirm_password' => 'required|matches[new_password]',
+            ])) {
+                return $this->login_edit();
+            }
+            $validData = $this->validator->getValidated();
+            $model = new \App\Models\Admin_model();
+            $database_data = $model->get($validData['old_username']);
+            if ($database_data) {
+                if (password_verify($validData['old_password'], $database_data['password'])) {
+
+                    $validData['password'] = password_hash($validData['new_password'], PASSWORD_BCRYPT);
+                    $validData['username'] = $validData['new_username'];
+
+                    $valData = [
+                        "id" => 1,
+                        "username" => $validData['new_username'],
+                        "password" => password_hash($validData['new_password'], PASSWORD_BCRYPT)
+                    ];
+                    if ($model->save($valData)) {
+                        session()->setFlashdata('success_alert', 'Change Successfully');
+                        return redirect()->to('/admin');
+                    }
+
+                    return $this->logout();
+                } else {
+                    session()->setFlashdata('danger_alert', 'Old Username and Password Do Not Match');
+                    return redirect()->to('/admin/login_edit');
+                }
+            } else {
+                session()->setFlashdata('danger_alert', 'Old Username and Password Do Not Match');
+                return redirect()->to('/admin/login_edit');
+            }
+            return $this->login_edit();
+        }
     }
 }

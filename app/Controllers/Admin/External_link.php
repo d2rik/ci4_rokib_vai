@@ -31,8 +31,10 @@ class External_link extends BaseController
         $model = new \App\Models\External_link_model();
         $requestMethod = $this->request->getMethod();
         if ($requestMethod == "post") {
-            $model->save($_POST);
-            return redirect()->to('admin/external_link_list');
+            if ($model->save($_POST)) {
+                session()->setFlashdata('success_alert', 'Add Successfully');
+                return redirect()->to('admin/external_link_list');
+            }
         }
         $data['main_content'] = view('Admin/external_link_add', $data);
         return view('Admin/index', $data);
@@ -51,8 +53,10 @@ class External_link extends BaseController
         $requestMethod = $this->request->getMethod();
         if ($requestMethod == "post") {
             $_POST['id'] = $id;
-            $model->save($_POST);
-            return redirect()->to('admin/external_link_list');
+            if ($model->save($_POST)) {
+                session()->setFlashdata('success_alert', 'Update Successfully');
+                return redirect()->to('admin/external_link_list');
+            }
         }
 
         $data['main_content'] = view('Admin/external_link_edit', $data);

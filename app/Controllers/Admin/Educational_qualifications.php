@@ -33,8 +33,10 @@ class Educational_qualifications extends BaseController
         $requestMethod = $this->request->getMethod();
 
         if ($requestMethod == "post") {
-            $model->save($_POST);
-            return redirect()->to('admin/educational_qualifications');
+            if ($model->save($_POST)) {
+                session()->setFlashdata('success_alert', 'Add Successfully');
+                return redirect()->to('admin/educational_qualifications');
+            }
         }
         $data['main_content'] = view('Admin/educational_qualifications_add', $data);
         return view('Admin/index', $data);
@@ -53,8 +55,10 @@ class Educational_qualifications extends BaseController
         $requestMethod = $this->request->getMethod();
         if ($requestMethod == "post") {
             $_POST['id'] = $id;
-            $model->save($_POST);
-            return redirect()->to('admin/educational_qualifications');
+            if ($model->save($_POST)) {
+                session()->setFlashdata('success_alert', 'Update Successfully');
+                return redirect()->to('admin/educational_qualifications');
+            }
         }
 
         $data['main_content'] = view('Admin/educational_qualifications_edit', $data);

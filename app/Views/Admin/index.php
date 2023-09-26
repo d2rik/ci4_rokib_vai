@@ -1,9 +1,3 @@
-<?php
-// if (!session('admin')) {
-//     echo "<script>window.location.href='".base_url()."login';</script>";
-// }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +7,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
     <!-- <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>"> -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -51,8 +47,25 @@
                         <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">
                             <ul class="py-1" role="none">
                                 <li>
-                                    <a href="<?= base_url("admin/logout") ?>" class="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Sign out</a>
+                                    <a onclick='logout_sure("<?= base_url("admin/logout") ?>")' class='block px-4 py-2 text-sm text-gray-700 hover:text-white hover:cursor-pointer hover:bg-red-400 ' role="menuitem">Sign out</a>
                                 </li>
+                                <script>
+                                    function logout_sure(link) {
+                                        swal({
+                                            title: "Going to Log Out!",
+                                            icon: "warning",
+                                            buttons: true,
+                                            dangerMode: true,
+                                        }).then((willDelete) => {
+                                            if (willDelete) {
+                                                window.location.href = link;
+                                                swal({
+                                                    icon: "success",
+                                                });
+                                            }
+                                        });
+                                    }
+                                </script>
                                 <li>
                                     <a href="<?= base_url('admin/profile') ?>" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Profile info</a>
                                 </li>
@@ -61,6 +74,9 @@
                                 </li>
                                 <li>
                                     <a href="<?= base_url('admin/banner_image') ?>" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Banner image</a>
+                                </li>
+                                <li>
+                                    <a href="<?= base_url('admin/login_edit') ?>" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Change Password</a>
                                 </li>
                             </ul>
                         </div>
@@ -153,6 +169,37 @@
         </div>
     </aside>
     <div class="p-4 sm:ml-64  mt-14">
+        <?php if (session()->getFlashdata('success_alert')) : ?>
+            <div id="alert-border-3" class="flex items-center p-4 mb-4 text-green-800 border-t-4 border-green-300 bg-green-50 dark:text-green-400 dark:bg-gray-800 dark:border-green-800" role="alert">
+                <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <div class="ml-3 text-sm font-medium">
+                    <?= session()->getFlashdata('success_alert') ?>
+                </div>
+                <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-green-400 dark:hover:bg-gray-700" data-dismiss-target="#alert-border-3" aria-label="Close">
+                    <span class="sr-only">Dismiss</span>
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                </button>
+            </div>
+        <?php elseif (session()->getFlashdata('danger_alert')) : ?>
+            <div id="alert-border-2" class="flex items-center p-4 mb-4 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800" role="alert">
+                <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <div class="ml-3 text-sm font-medium">
+                    <?= session()->getFlashdata('danger_alert') ?>
+                </div>
+                <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-red-50 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-red-400 dark:hover:bg-gray-700" data-dismiss-target="#alert-border-2" aria-label="Close">
+                    <span class="sr-only">Dismiss</span>
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                </button>
+            </div>
+        <?php endif ?>
         <div class="bg-primary text-white p-2"><?= $page_title ?></div>
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg">
             <!-- main content here -->

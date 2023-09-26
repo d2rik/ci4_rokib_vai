@@ -25,8 +25,10 @@ class Profile extends BaseController
         if ($requestMethod == "post") {
             $model = new \App\Models\Profile_model();
             $_POST['id'] = 1;
-            $model->save($_POST);
-            return redirect()->to('/');
+            if($model->save($_POST)){
+                session()->setFlashdata('success_alert', 'Profile Update Successfully');
+            }
+            return redirect()->to('/admin');
         }
     }
     public function edit_profile_image()
@@ -46,15 +48,16 @@ class Profile extends BaseController
             $file_name = $file->getName();
             $_POST['id'] = 1;
             $_POST['profile_image'] = $file_name;
-            $model->save($_POST);
-            return redirect()->to('/');
+            if($model->save($_POST)){
+                session()->setFlashdata('success_alert', 'Profile image Update Successfully');
+            }
+            return redirect()->to('/admin');
         }
         $page = "edit profile Image";
 
         $data = [
             'site_info' => $this->site_info,
             'page_title' => ucfirst($page),
-
         ];
         $data['main_content'] = view('Admin/profile_image', $data);
         return view('Admin/index', $data);
@@ -76,8 +79,10 @@ class Profile extends BaseController
             $file_name = $file->getName();
             $_POST['id'] = 1;
             $_POST['banner_image'] = $file_name;
-            $model->save($_POST);
-            return redirect()->to('/');
+            if($model->save($_POST)){
+                session()->setFlashdata('success_alert', 'Banner Image Update Successfully');
+            }
+            return redirect()->to('/admin');
         }
         $page = "edit Banner Image";
 

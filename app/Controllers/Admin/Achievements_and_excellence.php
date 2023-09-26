@@ -33,8 +33,10 @@ class Achievements_and_excellence extends BaseController
         $requestMethod = $this->request->getMethod();
 
         if ($requestMethod == "post") {
-            $model->save($_POST);
-            return redirect()->to('admin/achievements_and_excellence');
+            if ($model->save($_POST)) {
+                session()->setFlashdata('success_alert', 'Add Successfully');
+                return redirect()->to('admin/achievements_and_excellence');
+            }
         }
         $data['main_content'] = view('Admin/achievements_and_excellence_add', $data);
         return view('Admin/index', $data);
@@ -53,8 +55,10 @@ class Achievements_and_excellence extends BaseController
         $requestMethod = $this->request->getMethod();
         if ($requestMethod == "post") {
             $_POST['id'] = $id;
-            $model->save($_POST);
-            return redirect()->to('admin/achievements_and_excellence');
+            if ($model->save($_POST)) {
+                session()->setFlashdata('success_alert', 'Update Successfully');
+                return redirect()->to('admin/achievements_and_excellence');
+            }
         }
 
         $data['main_content'] = view('Admin/achievements_and_excellence_edit', $data);

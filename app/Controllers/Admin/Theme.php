@@ -25,8 +25,10 @@ class Theme extends BaseController
         if ($requestMethod == 'post') {
             $model = new \App\Models\Theme();
             $_POST['id'] = 1;
-            $model->save($_POST);
-            return redirect()->to('/');
+            if($model->save($_POST)){
+                session()->setFlashdata('success_alert', 'Theme Color Update Successfully');
+            }
+            return redirect()->to('admin');
         }
     }
 }

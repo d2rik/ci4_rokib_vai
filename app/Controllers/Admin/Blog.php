@@ -48,8 +48,10 @@ class Blog extends BaseController
                 'thumbnail' => $originalName,
             ];
 
-            $model->save($database_data);
-            return redirect()->to('admin/blog_list');
+            if ($model->save($database_data)) {
+                session()->setFlashdata('success_alert', 'Add Successfully');
+                return redirect()->to('admin/blog_list');
+            }
         }
         $data['main_content'] = view('Admin/blog_add', $data);
         return view('Admin/index', $data);
@@ -82,8 +84,10 @@ class Blog extends BaseController
             }
             $_POST['id'] = $id;
             $_POST['thumbnail'] = $newName;
-            $model->save($_POST);
-            return redirect()->to('admin/blog_list');
+            if ($model->save($_POST)) {
+                session()->setFlashdata('success_alert', 'Update Successfully');
+                return redirect()->to('admin/blog_list');
+            }
         }
 
         $data['main_content'] = view('Admin/blog_edit', $data);

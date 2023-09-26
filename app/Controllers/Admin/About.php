@@ -16,7 +16,6 @@ class About extends BaseController
         ];
         $model = new \App\Models\About_model();
         $data['about_info'] = $model->get_about();
-
         $data['main_content'] = view('Admin/about', $data);
         return view('Admin/index', $data);
     }
@@ -28,9 +27,10 @@ class About extends BaseController
         $requestMethod = $this->request->getMethod();
         if ($requestMethod == "post") {
             $_POST['id'] = 1;
-            $model->save($_POST);
-            $data['about_info'] = $model->get_about();
-            return redirect()->to('/');
+            if ($model->save($_POST)) {
+                session()->setFlashdata('success_alert', 'Update Successfully');
+            }
+            return redirect()->to('/admin');
         }
     }
 }

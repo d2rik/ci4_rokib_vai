@@ -18,7 +18,6 @@ $routes->get('contact_me', 'FrontEnd::contact_me');
 // $routes->post('register', 'FrontEnd::create_resister');
 $routes->get('login', 'FrontEnd::login');
 $routes->post('login', 'FrontEnd::match_login');
-$routes->get('admin/logout', 'FrontEnd::logout');
 // admin
 $routes->group('admin',['filter' => 'isLoggedIn'], function ($routes) {
     //dashboard
@@ -81,4 +80,8 @@ $routes->group('admin',['filter' => 'isLoggedIn'], function ($routes) {
     $routes->post('achievements_and_excellence_add', 'Admin\Achievements_and_excellence::add');
 
     $routes->get('achievements_and_excellence_delete/(:num)', 'Admin\Achievements_and_excellence::delete/$1');
+    //login system
+    $routes->get('logout', 'FrontEnd::logout');
+    $routes->get('login_edit', 'FrontEnd::login_edit');
+    $routes->post('login_edit', 'FrontEnd::login_edit_match');
 });

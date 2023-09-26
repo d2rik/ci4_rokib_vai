@@ -27,9 +27,10 @@ class Contact extends BaseController
         $requestMethod = $this->request->getMethod();
         if ($requestMethod == "post") {
             $_POST['id'] = 1;
-            $model->save($_POST);
-            $data['contact_info'] = $model->get_contact();
-            return redirect()->to('/contact_me');
+            if ($model->save($_POST)) {
+                session()->setFlashdata('success_alert', 'Update Successfully');
+                return redirect()->to('/contact_me');
+            }
         }
     }
 }
