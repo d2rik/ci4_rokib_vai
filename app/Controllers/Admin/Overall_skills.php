@@ -22,7 +22,7 @@ class Overall_skills extends BaseController
     }
     public function add()
     {
-        $page = "Add external website link";
+        $page = "Add Overall Skills";
 
         $data = [
             'site_info' => $this->site_info,

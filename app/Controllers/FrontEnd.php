@@ -145,6 +145,14 @@ class FrontEnd extends BaseController
         $data['site_info'] = $this->site_info;
         return view('index', $data);
     }
+    public function social_works($page = 'Social Works'){
+        $data['page_title'] = ucfirst($page);
+        $data['sub_title'] = strtoupper($page);
+
+        $data['main_content'] = view('social_works', $data);
+        $data['site_info'] = $this->site_info;
+        return view('index', $data);
+    }
     // public function register($page = 'Register')
     // {
     //     helper('form');

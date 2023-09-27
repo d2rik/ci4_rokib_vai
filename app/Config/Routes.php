@@ -14,6 +14,7 @@ $routes->post('getData', 'Dataaa::getData'); //ajax request
 $routes->get('blog/(:segment)', 'FrontEnd::show_blog');
 $routes->get('single_blog', 'FrontEnd::single_blog');
 $routes->get('resume', 'FrontEnd::resume');
+$routes->get('social_works', 'FrontEnd::social_works');
 $routes->get('teaching_and_mentoring', 'FrontEnd::teaching_and_mentoring');
 $routes->get('contact_me', 'FrontEnd::contact_me');
 // $routes->get('register', 'FrontEnd::register');
@@ -96,18 +97,18 @@ $routes->group('admin', ['filter' => 'isLoggedIn'], function ($routes) {
 
     $routes->get('professional_experience_delete/(:num)', 'Admin\Professional_experience::delete/$1');
 
-    //Professional Experience
-    $routes->get('teaching_and_mentoring', 'Admin\Teaching_and_mentoring::list');
+    //Teaching and mentoring
+    // $routes->get('teaching_and_mentoring', 'Admin\Teaching_and_mentoring::list');
 
-    $routes->get('teaching_and_mentoring_add', 'Admin\Teaching_and_mentoring::add');
+    // $routes->get('teaching_and_mentoring_add', 'Admin\Teaching_and_mentoring::add');
 
     $routes->get('teaching_and_mentoring_edit/(:num)', 'Admin\Teaching_and_mentoring::edit/$1');
 
     $routes->post('teaching_and_mentoring_edit/(:num)', 'Admin\Teaching_and_mentoring::edit/$1');
 
-    $routes->post('teaching_and_mentoring_add', 'Admin\Teaching_and_mentoring::add');
+    // $routes->post('teaching_and_mentoring_add', 'Admin\Teaching_and_mentoring::add');
 
-    $routes->get('teaching_and_mentoring_delete/(:num)', 'Admin\Teaching_and_mentoring::delete/$1');
+    // $routes->get('teaching_and_mentoring_delete/(:num)', 'Admin\Teaching_and_mentoring::delete/$1');
 
     //Journal Publications
     $routes->get('journal_publications', 'Admin\Journal_publications::list');

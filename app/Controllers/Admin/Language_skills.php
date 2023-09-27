@@ -22,7 +22,7 @@ class Language_skills extends BaseController
     }
     public function add()
     {
-        $page = "Add Language link";
+        $page = "Add Language Skills";
 
         $data = [
             'site_info' => $this->site_info,

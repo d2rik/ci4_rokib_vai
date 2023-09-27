@@ -8,7 +8,7 @@ class Achievements_and_excellence extends BaseController
 {
     public function list()
     {
-        $page = "list of Educational Qualifications";
+        $page = "list of Achievements and excellence";
 
         $data = [
             'site_info' => $this->site_info,
@@ -22,7 +22,7 @@ class Achievements_and_excellence extends BaseController
     }
     public function add()
     {
-        $page = "Add Educational Qualifications";
+        $page = "Add Achievements and excellence";
 
         $data = [
             'site_info' => $this->site_info,
@@ -42,7 +42,7 @@ class Achievements_and_excellence extends BaseController
     }
     public function edit($id)
     {
-        $page = "edit Educational Qualifications";
+        $page = "edit Achievements and excellence";
 
         $data = [
             'site_info' => $this->site_info,

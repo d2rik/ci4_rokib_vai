@@ -6,23 +6,9 @@ use App\Controllers\BaseController;
 
 class Teaching_and_mentoring extends BaseController
 {
-    public function list()
-    {
-        $page = "list of Professional Experience";
-
-        $data = [
-            'site_info' => $this->site_info,
-            'page_title' => ucfirst($page),
-        ];
-        $model = new \App\Models\Teaching_and_mentoring_model();
-        $data['item'] = $model->get();
-
-        $data['main_content'] = view('Admin/teaching_and_mentoring_list', $data);
-        return view('Admin/index', $data);
-    }
     public function edit($id)
     {
-        $page = "edit Professional Experience";
+        $page = "edit Teaching and Mentoring";
 
         $data = [
             'site_info' => $this->site_info,
@@ -58,12 +44,4 @@ class Teaching_and_mentoring extends BaseController
         return view('Admin/index', $data);
     }
 
-    public function delete($id = false)
-    {
-        $model = new \App\Models\Teaching_and_mentoring_model();
-        if ($id) {
-            $model->del($id);
-        }
-        return redirect()->to('admin/teaching_and_mentoring');
-    }
 }

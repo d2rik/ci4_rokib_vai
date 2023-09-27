@@ -58,7 +58,6 @@
 </head>
 
 <body style="font-family: 'Roboto', sans-serif">
-    <div id="preLoader" class="h-screen w-full fixed z-50 " style="background: #cbd5e0 url(<?= base_url('assets/icon/loader.gif') ?>) no-repeat center center"></div>
     <div class="hidden md:block h-52 bg-no-repeat bg-cover bg-center" style="background-image: url(<?= base_url('assets/image/') . esc($site_info['banner_image']) ?>)"></div>
     <!-- box content -->
     <div class="xl:max-w-[1200px] mx-auto mt-0 md:mt-[-104px] bg-gray-200 md:px-4 md:pt-4 md:pb-8 rounded md:shadow-lg">
@@ -91,7 +90,7 @@
                                 <a class=" <?= (esc($page_title) == 'Teaching and mentoring') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary text-sm" href="<?= base_url('/teaching_and_mentoring') ?>">Teaching and Mentoring</a>
                             </li>
                             <li>
-                                <a class="px-2 py-1 rounded block hover:bg-white hover:text-primary text-white text-sm" href="">Social Works</a>
+                                <a class="<?= (esc($page_title) == 'Social Works') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary text-sm" href="<?= base_url('/social_works') ?>">Social Works</a>
                             </li>
                             <li>
                                 <a class=" <?= (esc($page_title) == 'Resume') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary text-sm" href="<?= base_url('/resume') ?>">Resume</a>
@@ -237,9 +236,6 @@
     </footer>
     <script>
         $(document).ready(function() {
-            $(window).on('load', function() {
-                $('#preLoader').hide();
-            });
             $("#toggleButton").click(function() {
                 $("#contentToToggle").toggle(); // Toggle the visibility of the element
             });
