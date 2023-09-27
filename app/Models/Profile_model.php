@@ -8,7 +8,7 @@ class Profile_model extends Model
 {
     protected $table = 'site_info';
     protected $primaryKey = 'id';
-    public function get_banner()
+    public function get()
     {
         return $this->first();
     }

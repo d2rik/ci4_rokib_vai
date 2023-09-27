@@ -88,7 +88,7 @@
                                 <a class="<?= (esc($page_title) == 'Research and publications') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary text-sm" href="<?= base_url('/research_and_publications') ?>">Research and Publications</a>
                             </li>
                             <li>
-                                <a class="px-2 py-1 rounded block hover:bg-white hover:text-primary text-white text-sm" href="">Teaching and Mentoring</a>
+                                <a class=" <?= (esc($page_title) == 'Teaching and mentoring') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary text-sm" href="<?= base_url('/teaching_and_mentoring') ?>">Teaching and Mentoring</a>
                             </li>
                             <li>
                                 <a class="px-2 py-1 rounded block hover:bg-white hover:text-primary text-white text-sm" href="">Social Works</a>

@@ -63,12 +63,12 @@ class FrontEnd extends BaseController
 
         $model = new \App\Models\Achievements_and_excellence_model();
         $data['achievements_and_excellence'] = $model->get();
-        
+
         $model = new \App\Models\Overall_skills_model();
         $data['overall_skills'] = $model->get();
         $model = new \App\Models\Language_skills_model();
         $data['language_skills'] = $model->get();
-        
+
 
         $data['main_content'] = view('resume', $data);
         $data['site_info'] = $this->site_info;
@@ -85,6 +85,18 @@ class FrontEnd extends BaseController
         $data['conference_publications'] = $model2->get();
 
         $data['main_content'] = view('research_and_publications', $data);
+        $data['site_info'] = $this->site_info;
+        return view('index', $data);
+    }
+    public function teaching_and_mentoring($page = 'Teaching and mentoring'): string
+    {
+        $data['page_title'] = ucfirst($page);
+        $data['sub_title'] = strtoupper($page);
+
+        $model = new \App\Models\Teaching_and_mentoring_model();
+        $data['teaching_and_mentoring'] = $model->get();
+
+        $data['main_content'] = view('teaching_and_mentoring', $data);
         $data['site_info'] = $this->site_info;
         return view('index', $data);
     }
@@ -193,7 +205,7 @@ class FrontEnd extends BaseController
             $database_data = $model->get($validData['username']);
             if ($database_data) {
                 if (password_verify($validData['password'], $database_data['password'])) {
-                    $this->session->set("admin", $database_data['username']);
+                    $this->session->set("admin", $database_data['role']);
                     session()->setFlashdata('success_alert', 'Successfully Logged in');
                     return redirect()->to('/admin');
                 } else {

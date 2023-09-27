@@ -68,7 +68,7 @@ class Profile extends BaseController
         if ($this->request->is('post')) {
             $model = new \App\Models\Profile_model();
             $file = $this->request->getFile('banner_image');
-            $item = $model->get_banner();
+            $item = $model->get();
             $oldFile = $item['banner_image'];
             $oldFilePath = "./assets/image/" . $oldFile;
             $newFileName = $file->getRandomName();
