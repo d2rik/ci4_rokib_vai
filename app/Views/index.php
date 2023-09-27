@@ -58,7 +58,7 @@
 </head>
 
 <body style="font-family: 'Roboto', sans-serif">
-    <div class="hidden md:block h-52 bg-no-repeat bg-cover bg-center" style="background-image: url(<?= base_url('assets/image/') . esc($site_info['banner_image']) ?>)"></div>
+    <div class="hidden md:block h-52 bg-no-repeat bg-cover bg-center" style="background-image: url(<?= base_url() . esc(src($site_info['banner_image'],'banner/small')) ?>)"></div>
     <!-- box content -->
     <div class="xl:max-w-[1200px] mx-auto mt-0 md:mt-[-104px] bg-gray-200 md:px-4 md:pt-4 md:pb-8 rounded md:shadow-lg">
         <div class="md:mt-[-38px]">
@@ -166,7 +166,7 @@
                         </div>
                         <img class="w-full" src="<?= base_url('assets/image/shape.png') ?>" alt="" />
                     </div>
-                    <img class="w-full" src="<?= base_url('assets/image/') . esc($site_info['profile_image']) ?>" loading="lazy" alt="" />
+                    <img class="w-full" src="<?= base_url() . esc(src($site_info['profile_image'],'profile/small')) ?>" loading="lazy" alt="" />
                 </div>
                 <section class="flex-1 bg-white <?= (esc($page_title) == "Home") ? "mt-8" : ""; ?>  md:mt-0 px-4 py-5 md:h-[519px] md:overflow-auto md:overflow-x-hidden">
                     <h1 class="inline font-bold text-md border-b-2 border-primary"><?= $sub_title ?></h1>

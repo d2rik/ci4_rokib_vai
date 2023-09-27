@@ -1,5 +1,6 @@
 <div class="">
-  <img class="rounded w-full" src="<?= base_url('assets/image/blog_image/') . $blog['thumbnail'] ?>" alt="" />
+  <img class="rounded w-full" src="<?= base_url() . src($blog['thumbnail'], 'blog_image') ?>" alt="" />
+
   <div class="mt-2">
     <div class="">
       <span class="p-1 border border-primary text-xs rounded-sm text-primary">

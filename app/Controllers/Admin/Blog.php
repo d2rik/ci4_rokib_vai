@@ -8,6 +8,7 @@ class Blog extends BaseController
 {
     public function index()
     {
+        helper(['image']);
         $page = "list of Blog";
 
         $data = [
@@ -22,6 +23,8 @@ class Blog extends BaseController
     }
     public function add()
     {
+
+        helper(['image']);
         $page = "Add Blog";
 
         $data = [
@@ -34,11 +37,16 @@ class Blog extends BaseController
         if ($this->request->is('post')) {
             $title = $this->request->getPost('title');
             $slug = uniqid();
-
+            $image = service('image');
+            $path = './uploads/images/blog_image/';
             $file = $this->request->getFile('thumbnail');
             $randomName = $file->getRandomName();
             if ($file->isValid() && !$file->hasMoved()) {
-                $file->move('./assets/image/blog_image', $randomName);
+                $file->move($path, $randomName);
+                if (!is_dir($path . 'thumbs')) {
+                    mkdir($path . 'thumbs', 0777, true);
+                }
+                $image->withFile(src($randomName, 'blog_image'))->fit(150, 100, 'center')->save($path . 'thumbs/' . $randomName);
             }
 
             $database_data = [
@@ -59,8 +67,8 @@ class Blog extends BaseController
 
     public function edit($id)
     {
+        helper(['image']);
         $page = "edit Blog";
-
         $data = [
             'site_info' => $this->site_info,
             'page_title' => ucfirst($page),
@@ -69,20 +77,35 @@ class Blog extends BaseController
         $data['blog'] = $model->get_blog_edit($id);
 
         if ($this->request->is('post')) {
+            $image = service('image');
             $item = $model->get_blog_edit($id);
-
             $oldFile = $item['thumbnail'];
+
+            $path = './uploads/images/blog_image/';
+            $oldFilePath_main = $path . $oldFile;
+            $oldFilePath_thumb = $path . "thumbs/" . $oldFile;
+
             $newFile = $this->request->getFile('thumbnail');
-            $oldFilePath = "./assets/image/blog_image/" . $oldFile;
+
             if ($newFile->isValid() && !$newFile->hasMoved()) {
-                $newName = $newFile->getRandomName();
-                $newFile->move('./assets/image/blog_image', $newName);
-                unlink($oldFilePath);
+                $newRandomName = $newFile->getRandomName();
+
+                if (!is_dir($path . 'thumbs')) {
+                    mkdir($path . 'thumbs', 0777, true);
+                }
+                $newFile->move($path, $newRandomName);
+
+                $image->withFile(src($newRandomName, 'blog_image'))->fit(150, 100, 'center')->save($path . 'thumbs/' . $newRandomName);
+
+                if (is_file($oldFilePath_main) && is_file($oldFilePath_thumb)) {
+                    unlink($oldFilePath_main);
+                    unlink($oldFilePath_thumb);
+                }
             } else {
-                $newName = $oldFile;
+                $newRandomName = $oldFile;
             }
             $_POST['id'] = $id;
-            $_POST['thumbnail'] = $newName;
+            $_POST['thumbnail'] = $newRandomName;
             if ($model->save($_POST)) {
                 session()->setFlashdata('success_alert', 'Update Successfully');
                 return redirect()->to('admin/blog_list');
@@ -99,10 +122,14 @@ class Blog extends BaseController
         $item = $model->get_blog_edit($id);
 
         $oldFile = $item['thumbnail'];
-        $oldFilePath = "./assets/image/blog_image/" . $oldFile;
+        $oldFilePath_main = "./uploads/images/blog_image/" . $oldFile;
+        $oldFilePath_thumb = "./uploads/images/blog_image/thumbs/" . $oldFile;
         if ($id) {
             $model->del($id);
-            unlink($oldFilePath);
+            if (is_file($oldFilePath_main) && is_file($oldFilePath_thumb)) {
+                unlink($oldFilePath_main);
+                unlink($oldFilePath_thumb);
+            }
         }
         return redirect()->to('admin/blog_list');
     }

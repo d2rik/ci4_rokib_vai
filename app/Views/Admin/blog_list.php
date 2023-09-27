@@ -30,7 +30,7 @@
                         <?= $serial-- ?>
                     </td>
                     <td class='px-6 py-4'>
-                        <a href="admin/update_blog_thumbnail"><img class=" w-32" src="<?= base_url('assets/image/blog_image/') . $row['thumbnail'] ?>" alt="blog_thumbnail"></a>
+                        <img class="w-32" src="<?= base_url() . src($row['thumbnail'], 'blog_image/thumbs') ?>" alt="blog_thumbnail">
                     </td>
                     <td class='px-6 py-4'>
                         <?= $row['title'] ?>

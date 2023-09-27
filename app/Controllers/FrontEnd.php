@@ -103,6 +103,7 @@ class FrontEnd extends BaseController
 
     public function blog($page = 'blog'): string
     {
+        helper(['image']);
         $data['page_title'] = ucfirst($page);
         $data['sub_title'] = strtoupper($page);
 
@@ -117,9 +118,9 @@ class FrontEnd extends BaseController
     public function show_blog($page = 'single blog'): string
     {
 
+        helper(['image']);
         $uri = $this->request->getUri();
         $slug = $uri->getSegment(2);
-
         $data['page_title'] = ucfirst($page);
         $data['sub_title'] = strtoupper($page);
 
@@ -145,7 +146,8 @@ class FrontEnd extends BaseController
         $data['site_info'] = $this->site_info;
         return view('index', $data);
     }
-    public function social_works($page = 'Social Works'){
+    public function social_works($page = 'Social Works')
+    {
         $data['page_title'] = ucfirst($page);
         $data['sub_title'] = strtoupper($page);
 

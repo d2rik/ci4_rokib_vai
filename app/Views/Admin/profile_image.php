@@ -1,5 +1,5 @@
 <form action="profile_image" method="post" enctype="multipart/form-data" >
-    <img class="w-40" src="<?= base_url('assets/image/').$site_info['profile_image'] ?>" alt="">
+    <img class="w-40" src="<?= base_url().src($site_info['profile_image'],'profile/small') ?>" alt="">
     <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
         <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2">

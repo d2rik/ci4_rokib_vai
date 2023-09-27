@@ -4,7 +4,7 @@
         <div class="text-center">
             <div class=" rounded w-full overflow-hidden">
                 <a class="" href="<?= base_url('blog/') . esc($item['slug']) ?>">
-                    <img class=" w-full hover:scale-105 hover:cursor-pointer transition-all" src="<?= base_url('assets/image/blog_image/') . esc($item['thumbnail']) ?>" alt="" />
+                    <img class=" w-full hover:scale-105 hover:cursor-pointer transition-all" src="<?= base_url() . src($item['thumbnail'], 'blog_image/thumbs') ?>" alt="" />
                 </a>
             </div>
             <div class="mt-2">
