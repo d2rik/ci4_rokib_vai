@@ -8,7 +8,6 @@ class Blog extends BaseController
 {
     public function index()
     {
-        helper(['image']);
         $page = "list of Blog";
 
         $data = [
@@ -23,8 +22,6 @@ class Blog extends BaseController
     }
     public function add()
     {
-
-        helper(['image']);
         $page = "Add Blog";
 
         $data = [
@@ -67,7 +64,6 @@ class Blog extends BaseController
 
     public function edit($id)
     {
-        helper(['image']);
         $page = "edit Blog";
         $data = [
             'site_info' => $this->site_info,

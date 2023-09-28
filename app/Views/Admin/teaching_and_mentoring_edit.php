@@ -1,4 +1,5 @@
 <form action="" method="post" enctype="multipart/form-data">
+<?= csrf_field() ?>
     <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
         <div class="mb-4">
             <img src="<?= base_url('assets/image/') . $item['image'] ?>" alt="">

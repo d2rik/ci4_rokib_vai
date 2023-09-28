@@ -15,6 +15,7 @@
     };
 </script>
 <form action="profile_image" method="post" enctype="multipart/form-data">
+<?= csrf_field() ?>
     <div class="h-[130px] w-[100px] overflow-hidden flex items-center justify-center">
         <img class="h-full max-w-fit" id="preview_img" src="<?= base_url() . src($site_info['profile_image'], 'profile/small') ?>" alt="">
     </div>

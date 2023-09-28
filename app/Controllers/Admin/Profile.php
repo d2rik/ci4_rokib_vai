@@ -92,7 +92,6 @@ class Profile extends BaseController
         ];
 
         if ($this->request->is('post')) {
-
             $image = service('image');
             $model = new \App\Models\Profile_model();
             $item = $model->get();

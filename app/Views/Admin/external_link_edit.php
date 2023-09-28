@@ -1,4 +1,5 @@
 <form action="" method="post">
+<?= csrf_field() ?>
     <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
         <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2">

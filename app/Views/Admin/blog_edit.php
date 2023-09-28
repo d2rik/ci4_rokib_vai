@@ -15,6 +15,7 @@
     };
 </script>
 <form action="" method="post" enctype="multipart/form-data">
+<?= csrf_field() ?>
     <div class="grid grid-cols-1 gap-4">
         <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2">

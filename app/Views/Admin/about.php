@@ -1,4 +1,5 @@
 <form action="about" method="post">
+    <?= csrf_field() ?>
     <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
         <div class=" mt-3 mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="">
@@ -20,7 +21,7 @@
                 <input class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="fun_fact1" value="<?= $about_info['fun_fact1'] ?>" />
             </div>
             <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2">
                     Count
                 </label>
                 <input class="shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="fun_fact1_count" value="<?= $about_info['fun_fact1_count'] ?>" />
@@ -34,7 +35,7 @@
                 <input class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="fun_fact2" value="<?= $about_info['fun_fact2'] ?>" />
             </div>
             <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2">
                     Count
                 </label>
                 <input class="shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="fun_fact2_count" value="<?= $about_info['fun_fact2_count'] ?>" />
@@ -48,7 +49,7 @@
                 <input class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="fun_fact3" value="<?= $about_info['fun_fact3'] ?>" />
             </div>
             <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2">
                     Count
                 </label>
                 <input class="shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="fun_fact3_count" value="<?= $about_info['fun_fact3_count'] ?>" />

@@ -15,6 +15,7 @@
     };
 </script>
 <form action="banner_image" method="post" enctype="multipart/form-data">
+<?= csrf_field() ?>
     <div class="max-h-52 overflow-hidden flex items-center justify-center">
         <img id="preview_img" class="" src="<?= base_url() . src($site_info['banner_image'], 'banner/small') ?>" alt="">
     </div>
