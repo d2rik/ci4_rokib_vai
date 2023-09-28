@@ -18,7 +18,7 @@ class Dataaa extends BaseController
                 <!-- box -->
                 <div class="text-center">
                     <a href="<?= base_url('blog/') . esc($item['slug']) ?>">
-                        <img class="w-full rounded hover:scale-105 hover:cursor-pointer transition-all" src="<?= base_url('assets/image/blog_image/') . esc($item['thumbnail']) ?>" alt="" />
+                        <img class="w-full rounded hover:scale-105 hover:cursor-pointer transition-all" src="<?= base_url() . src(esc($item['thumbnail']),'blog_image/thumbs') ?>" alt="" />
                     </a>
                     <div class="mt-2">
                         <div class="">
