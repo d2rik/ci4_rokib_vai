@@ -23,5 +23,6 @@
             </address>
         </div>
     </div>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14610.331611795993!2d90.37420548535044!3d23.726584449798832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8dd4855f073%3A0x27aa71bcab92ae5a!2sBangladesh%20University%20of%20Engineering%20and%20Technology%20(BUET)!5e0!3m2!1sen!2sbd!4v1695144896746!5m2!1sen!2sbd" class="flex-1 w-full" height="200" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe class="flex-1 w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110263.61974493592!2d90.35643392837189!3d23.799541999841228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1695913444378!5m2!1sen!2sbd" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    
 </div>

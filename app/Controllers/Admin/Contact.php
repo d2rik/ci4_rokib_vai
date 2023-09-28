@@ -28,7 +28,7 @@ class Contact extends BaseController
             $_POST['id'] = 1;
             if ($model->save($_POST)) {
                 session()->setFlashdata('success_alert', 'Update Successfully');
-                return redirect()->to('/contact_me');
+                return redirect()->to('/admin');
             }
         }
     }

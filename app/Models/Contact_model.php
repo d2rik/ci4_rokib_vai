@@ -12,5 +12,5 @@ class Contact_model extends Model
     {
         return $this->first();
     }
-    protected $allowedFields = ['sub_title','phone','email','address','updated_at'];
+    protected $allowedFields = ['residence','sub_title','phone','email','address','updated_at'];
 }
