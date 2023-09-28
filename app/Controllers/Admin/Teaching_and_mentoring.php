@@ -36,7 +36,7 @@ class Teaching_and_mentoring extends BaseController
 
             if ($model->save($_POST)) {
                 session()->setFlashdata('success_alert', 'Update Successfully');
-                return redirect()->to('admin/teaching_and_mentoring');
+                return redirect()->to('admin/teaching_and_mentoring_edit/1');
             }
         }
 

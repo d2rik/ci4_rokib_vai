@@ -15,7 +15,7 @@
     };
 </script>
 <form action="" method="post" enctype="multipart/form-data">
-    <?= csrf_field() ?>
+<?= csrf_field() ?>
     <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
         <div class="mb-4">
             <img id="preview_img" src="<?= base_url('assets/image/') . $item['image'] ?>" alt="">

@@ -20,7 +20,7 @@ $routes->get('contact_me', 'FrontEnd::contact_me');
 // $routes->get('register', 'FrontEnd::register');
 // $routes->post('register', 'FrontEnd::create_resister');
 $routes->get('login', 'FrontEnd::login');
-$routes->post('login', 'FrontEnd::match_login');
+$routes->post('login', 'FrontEnd::match_login', ['filter' => 'csrf']);
 // admin
 $routes->group('admin', ['filter' => 'isLoggedIn'], function ($routes) {
     //dashboard
@@ -73,6 +73,9 @@ $routes->group('admin', ['filter' => 'isLoggedIn'], function ($routes) {
     //Teaching and mentoring
 
     $routes->match(['get', 'post'], 'teaching_and_mentoring_edit/(:num)', 'Admin\Teaching_and_mentoring::edit/$1');
+    //Social Works
+
+    $routes->match(['get', 'post'], 'social_works_edit/(:num)', 'Admin\Social_works::edit/$1');
 
     //Journal Publications
     $routes->get('journal_publications', 'Admin\Journal_publications::list');

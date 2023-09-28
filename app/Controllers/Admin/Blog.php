@@ -43,7 +43,7 @@ class Blog extends BaseController
                 if (!is_dir($path . 'thumbs')) {
                     mkdir($path . 'thumbs', 0777, true);
                 }
-                $image->withFile(src($randomName, 'blog_image'))->fit(150, 100, 'center')->save($path . 'thumbs/' . $randomName);
+                $image->withFile(src($randomName, 'blog_image'))->fit(300, 200, 'center')->save($path . 'thumbs/' . $randomName);
             }
 
             $database_data = [
@@ -91,7 +91,7 @@ class Blog extends BaseController
                 }
                 $newFile->move($path, $newRandomName);
 
-                $image->withFile(src($newRandomName, 'blog_image'))->fit(150, 100, 'center')->save($path . 'thumbs/' . $newRandomName);
+                $image->withFile(src($newRandomName, 'blog_image'))->fit(300, 200, 'center')->save($path . 'thumbs/' . $newRandomName);
 
                 if (is_file($oldFilePath_main) && is_file($oldFilePath_thumb)) {
                     unlink($oldFilePath_main);
