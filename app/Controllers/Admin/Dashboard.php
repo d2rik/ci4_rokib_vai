@@ -13,8 +13,10 @@ class Dashboard extends BaseController
         $data = [
             'site_info' => $this->site_info,
             'page_title' => ucfirst($page),
-            'main_content' => view('Admin/dashboard'),
         ];
+        $model = new \App\Models\Blog_model();
+        $data['blog_items'] = $model->get_blog_admin();
+        $data['main_content'] = view('Admin/dashboard',$data);
         return view('Admin/index', $data);
     }
 }

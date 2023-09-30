@@ -14,6 +14,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -58,7 +59,7 @@
 </head>
 
 <body style="font-family: 'Roboto', sans-serif">
-    <div class="hidden md:block h-52 bg-no-repeat bg-cover bg-center" style="background-image: url(<?= base_url() . esc(src($site_info['banner_image'],'banner/small')) ?>)"></div>
+    <div class="hidden md:block h-52 bg-no-repeat bg-cover bg-center" style="background-image: url(<?= base_url() . esc(src($site_info['banner_image'], 'banner/small')) ?>)"></div>
     <!-- box content -->
     <div class="xl:max-w-[1200px] mx-auto mt-0 md:mt-[-104px] bg-gray-200 md:px-4 md:pt-4 md:pb-8 rounded md:shadow-lg">
         <div class="md:mt-[-38px]">
@@ -166,44 +167,13 @@
                         </div>
                         <img class="w-full" src="<?= base_url('assets/image/shape.png') ?>" alt="" />
                     </div>
-                    <img class="w-full" src="<?= base_url() . esc(src($site_info['profile_image'],'profile/small')) ?>" loading="lazy" alt="" />
+                    <img class="w-full" src="<?= base_url() . esc(src($site_info['profile_image'], 'profile/small')) ?>" loading="lazy" alt="" />
                 </div>
                 <section class="flex-1 bg-white <?= (esc($page_title) == "Home") ? "mt-8" : ""; ?>  md:mt-0 px-4 py-5 md:h-[519px] md:overflow-auto md:overflow-x-hidden">
-                    <h1 class="inline font-bold text-md border-b-2 border-primary"><?= $sub_title ?></h1>
+                    <h1 class="inline font-bold text-md border-b-2 border-primary"><?= ($sub_title) ? "$sub_title" : ""; ?></h1>
                     <div class="border-b mb-2 border-gray-200"></div>
                     <!-- main content -->
                     <div class="mt-5">
-                        <?php if (session()->getFlashdata('success_alert')) : ?>
-                            <div id="alert-border-3" class="flex items-center p-4 mb-4 text-green-800 border-t-4 border-green-300 bg-green-50 dark:text-green-400 dark:bg-gray-800 dark:border-green-800" role="alert">
-                                <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                                </svg>
-                                <div class="ml-3 text-sm font-medium">
-                                    <?= session()->getFlashdata('success_alert') ?>
-                                </div>
-                                <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-green-400 dark:hover:bg-gray-700" data-dismiss-target="#alert-border-3" aria-label="Close">
-                                    <span class="sr-only">Dismiss</span>
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                    </svg>
-                                </button>
-                            </div>
-                        <?php elseif (session()->getFlashdata('danger_alert')) : ?>
-                            <div id="alert-border-2" class="flex items-center p-4 mb-4 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800" role="alert">
-                                <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                                </svg>
-                                <div class="ml-3 text-sm font-medium">
-                                    <?= session()->getFlashdata('danger_alert') ?>
-                                </div>
-                                <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-red-50 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-red-400 dark:hover:bg-gray-700" data-dismiss-target="#alert-border-2" aria-label="Close">
-                                    <span class="sr-only">Dismiss</span>
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                    </svg>
-                                </button>
-                            </div>
-                        <?php endif ?>
                         <!-- main content here -->
                         <?= $main_content ?>
                     </div>

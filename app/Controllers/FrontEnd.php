@@ -115,7 +115,7 @@ class FrontEnd extends BaseController
         return view('index', $data);
     }
 
-    public function show_blog($page = 'single blog'): string
+    public function show_blog($page = ''): string
     {
 
         helper(['image']);
