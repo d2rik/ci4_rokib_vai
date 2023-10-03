@@ -4,13 +4,17 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 
     <script src="<?= base_url('assets/js/typed.js') ?>"></script>
     <script src="<?= base_url('assets/js/jquery.js') ?>"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
-    <!-- <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -63,9 +67,10 @@
     <!-- box content -->
     <div class="xl:max-w-[1200px] mx-auto mt-0 md:mt-[-104px] bg-gray-200 md:px-4 md:pt-4 md:pb-8 rounded md:shadow-lg">
         <div class="md:mt-[-38px]">
-            <header class="h-11 lg:w-[1010px] m-auto bg-primary px-4 md:rounded">
+            <!-- lg:w-[1010px] -->
+            <header class="h-11 m-auto bg-primary px-4 md:rounded">
                 <nav class="h-full w-full flex items-center justify-end lg:justify-center">
-                    <div id="contentToToggle" class="hidden lg:block absolute top-0 lg:top-auto lg:left-auto left-0 bg-primary lg:bg-transparent z-40 px-4 h-screen lg:h-auto overflow-x-hidden overflow-auto">
+                    <div id="contentToToggle" class="hidden lg:block absolute top-0 lg:top-auto lg:left-auto left-0 bg-primary lg:bg-transparent z-10 px-4 h-screen lg:h-auto ">
                         <div class="flex justify-end items-center py-3 lg:hidden">
                             <div id="closeBtn" class="p-1 rounded-md bg-opacity-50">
                                 <svg class="w-6 h-6 hover:text-red-400 hover:cursor-pointer text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -73,34 +78,56 @@
                                 </svg>
                             </div>
                         </div>
-                        <ul class="list-none flex gap-1 flex-col lg:flex-row">
+                        <ul class="list-none flex flex-col lg:flex-row">
                             <li>
-                                <a class=" <?= (esc($page_title) == 'Home') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary text-sm" href="<?= base_url('/') ?>">
+                                <a class=" <?= (esc($page_title) == 'Home') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/') ?>">
                                     Home</a>
                             </li>
                             <li>
-                                <a class=" <?= (esc($page_title) == 'Academic information') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary text-sm" href="<?= base_url('/academic_info') ?>">Academic Info</a>
+                                <a class=" <?= (esc($page_title) == 'Academic information') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/academic_info') ?>">Academic Info</a>
                             </li>
                             <li>
-                                <a class=" <?= (esc($page_title) == 'Professional experience') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary text-sm" href="<?= base_url('/professional_experience') ?>">Professional Experience</a>
+                                <a class=" <?= (esc($page_title) == '') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/academic_info') ?>">Test Scores & Certifications</a>
                             </li>
                             <li>
-                                <a class="<?= (esc($page_title) == 'Research and publications') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary text-sm" href="<?= base_url('/research_and_publications') ?>">Research and Publications</a>
+                                <a class=" <?= (esc($page_title) == 'Professional experience') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/professional_experience') ?>">Professional Experience</a>
                             </li>
                             <li>
-                                <a class=" <?= (esc($page_title) == 'Teaching and mentoring') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary text-sm" href="<?= base_url('/teaching_and_mentoring') ?>">Teaching and Mentoring</a>
+
+                                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="<?= (esc($page_title) == 'Research and publications') ? 'bg-white text-primary' : 'text-white'; ?> inline-flex items-center px-2 py-1 rounded hover:bg-white hover:text-primary  text-xs" type="button">Research & Publications<svg class="w-2.5 h-2.5 ml-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+                                    </svg>
+                                </button>
+
+                                <!-- Dropdown menu -->
+                                <div id="dropdown" class=" z-20 hidden absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                        <li>
+                                            <a href="<?= base_url('/research_and_publications') ?>" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Publications</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Research Interest</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                             <li>
-                                <a class="<?= (esc($page_title) == 'Social Works') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary text-sm" href="<?= base_url('/social_works') ?>">Social Works</a>
+                                <a class=" <?= (esc($page_title) == 'Teaching and mentoring') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/teaching_and_mentoring') ?>">Teaching & Mentoring</a>
                             </li>
                             <li>
-                                <a class=" <?= (esc($page_title) == 'Resume') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary text-sm" href="<?= base_url('/resume') ?>">Resume</a>
+                                <a class="<?= (esc($page_title) == 'Social Works') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/social_works') ?>">Social Works</a>
                             </li>
                             <li>
-                                <a class="<?= (esc($page_title) == 'Blog') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary text-sm" href="<?= base_url('/blog') ?>">Blog</a>
+                                <a class=" <?= (esc($page_title) == 'Resume') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/resume') ?>">Resume</a>
                             </li>
                             <li>
-                                <a class=" <?= (esc($page_title) == 'Contact me') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary text-sm" href="<?= base_url('/contact_me') ?>">Contact</a>
+                                <a class=" <?= (esc($page_title) == '') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/resume') ?>">Other Interests</a>
+                            </li>
+                            <li>
+                                <a class="<?= (esc($page_title) == 'Blog') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/blog') ?>">Blog</a>
+                            </li>
+                            <li>
+                                <a class=" <?= (esc($page_title) == 'Contact me') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/contact_me') ?>">Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -132,11 +159,6 @@
                                         <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
                                     </svg>
                                 </a>
-                                <a class="bg-black hover:bg-blue-400 rounded p-1" href="<?= esc($site_info['link2']) ?>" target="_blank">
-                                    <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                        <path fill="currentColor" d="M12.186 8.672 18.743.947h-2.927l-5.005 5.9-4.44-5.9H0l7.434 9.876-6.986 8.23h2.927l5.434-6.4 4.82 6.4H20L12.186 8.672Zm-2.267 2.671L8.544 9.515 3.2 2.42h2.2l4.312 5.719 1.375 1.828 5.731 7.613h-2.2l-4.699-6.237Z" />
-                                    </svg>
-                                </a>
                                 <a class="bg-black hover:bg-blue-500 rounded p-1" href="<?= esc($site_info['link3']) ?>" target="_blank">
                                     <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
                                         <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd" />
@@ -147,13 +169,10 @@
                             </div>
                             <!-- button -->
                             <div class="relative bottom-[-24px] flex justify-around items-center">
-                                <a href="<?= base_url('assets/rokibul_islam_cv.pdf') ?>" class="transition-all flex items-center justify-center gap-2 w-40 py-2 rounded-md border-primary bg-white text-primary shadow-md hover:shadow-primary border-2">
-                                    Download CV
-                                    <svg class="fill-primary" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6.97297 13.814C6.88833 13.814 6.81215 13.7972 6.7275 13.7637C6.4905 13.6717 6.33813 13.4372 6.33813 13.1861V8.16282C6.33813 7.81956 6.62593 7.53491 6.97297 7.53491C7.32002 7.53491 7.60781 7.81956 7.60781 8.16282V11.6707L8.21726 11.0679C8.46273 10.8251 8.86903 10.8251 9.1145 11.0679C9.35997 11.3107 9.35997 11.7126 9.1145 11.9554L7.42159 13.6298C7.30309 13.747 7.1338 13.814 6.97297 13.814Z" />
-                                        <path d="M6.9726 13.8139C6.81177 13.8139 6.65095 13.7553 6.52398 13.6297L4.83108 11.9553C4.5856 11.7125 4.5856 11.3106 4.83108 11.0678C5.07655 10.825 5.48284 10.825 5.72832 11.0678L7.42122 12.7423C7.66669 12.985 7.66669 13.3869 7.42122 13.6297C7.29425 13.7553 7.13343 13.8139 6.9726 13.8139Z" />
-                                        <path d="M12.0518 18H6.97309C2.37685 18 0.413086 16.0577 0.413086 11.5116V6.48837C0.413086 1.94233 2.37685 0 6.97309 0H11.2053C11.5524 0 11.8402 0.284651 11.8402 0.627907C11.8402 0.971163 11.5524 1.25581 11.2053 1.25581H6.97309C3.07095 1.25581 1.68276 2.62884 1.68276 6.48837V11.5116C1.68276 15.3712 3.07095 16.7442 6.97309 16.7442H12.0518C15.9539 16.7442 17.3421 15.3712 17.3421 11.5116V7.32558C17.3421 6.98233 17.6299 6.69767 17.977 6.69767C18.324 6.69767 18.6118 6.98233 18.6118 7.32558V11.5116C18.6118 16.0577 16.648 18 12.0518 18Z" />
-                                        <path d="M17.977 7.95373H14.5912C11.6963 7.95373 10.5706 6.84023 10.5706 3.97697V0.628136C10.5706 0.376973 10.7229 0.142555 10.9599 0.0504616C11.1969 -0.0500035 11.4678 0.00860108 11.654 0.184415L18.4256 6.88209C18.6034 7.0579 18.6626 7.33419 18.5611 7.56861C18.4595 7.80303 18.2309 7.95373 17.977 7.95373ZM11.8402 2.14348V3.97697C11.8402 6.13697 12.4074 6.6979 14.5912 6.6979H16.4449L11.8402 2.14348Z" />
+                                <a href="<?= base_url('/contact_me') ?>" class="transition-all flex items-center justify-center gap-2 w-40 py-2 rounded-md border-primary bg-white text-primary shadow-md hover:shadow-primary border-2">
+                                    Get CV
+                                    <svg class="fill-primary" xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                        <path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16H224v80c0 17.7 14.3 32 32 32h80V448c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3L274.7 18.7C262.7 6.7 246.5 0 229.5 0H64zm56 256c-13.3 0-24 10.7-24 24s10.7 24 24 24H264c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24H264c13.3 0 24-10.7 24-24s-10.7-24-24-24H120z" />
                                     </svg>
 
                                 </a>
@@ -170,7 +189,7 @@
                     <img class="w-full" src="<?= base_url() . esc(src($site_info['profile_image'], 'profile/small')) ?>" loading="lazy" alt="" />
                 </div>
                 <section class="flex-1 bg-white <?= (esc($page_title) == "Home") ? "mt-8" : ""; ?>  md:mt-0 px-4 py-5 md:h-[519px] md:overflow-auto md:overflow-x-hidden">
-                    <h1 class="inline font-bold text-md border-b-2 border-primary"><?= ($sub_title) ? "$sub_title" : ""; ?></h1>
+                    <h1 class="inline font-bold text-base border-b-2 border-primary"><?= ($sub_title) ? "$sub_title" : ""; ?></h1>
                     <div class="border-b mb-2 border-gray-200"></div>
                     <!-- main content -->
                     <div class="mt-5">
@@ -182,26 +201,21 @@
         </div>
     </div>
     <!-- footer -->
-    <footer class="xl:w-[80%] mx-auto mt-11 md:p-4 p-2 bg-slate-300 md:bg-transparent">
+    <footer class="xl:w-[80%] mx-auto mt-4 md:p-4 p-2 bg-slate-300 md:bg-transparent">
         <ul class="list-none flex flex-wrap justify-center ">
             <?php foreach ($site_info['external_link'] as $item) : ?>
                 <li>
-                    <a class="group px-2 py-1 rounded flex items-center gap-1 text-xs " href="<?= $item['site_link'] ?>" target="_blank">
+                    <a class="group px-2 py-1 rounded flex items-center gap-1 font-bold text-primary " href="<?= $item['site_link'] ?>" target="_blank">
                         <span class="group-hover:text-primary"><?= $item['site_name'] ?></span>
-                        <svg class="w-2 h-2 group-hover:text-primary" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                        <svg class="w-3 h-4 group-hover:text-primary" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
                         </svg>
                     </a>
                 </li>
             <?php endforeach ?>
-            <li>
-                <a class="group px-2 py-1 rounded flex items-center gap-1 text-xs " href="<?= base_url() . 'admin' ?>">
-                    <span class="group-hover:text-primary">Admin</span>
-                </a>
-            </li>
         </ul>
-        <div>
-            <p class="text-xs text-center mt-2">© <?= $site_info['name'] ?> , 2023</p>
+        <div class="text-center">
+            <a href="<?= base_url() . 'admin' ?>" class="text-xs mt-2">© <?= $site_info['name'] ?> , 2023</a>
         </div>
     </footer>
     <script>
