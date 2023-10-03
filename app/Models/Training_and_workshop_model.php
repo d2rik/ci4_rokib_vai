@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Professional_experience_model extends Model
+class Training_and_workshop_model extends Model
 {
-    protected $table = 'professional_experience';
+    protected $table = 'training_and_workshop';
     protected $primaryKey = 'id';
     public function get($id = false)
     {
@@ -19,5 +19,5 @@ class Professional_experience_model extends Model
     {
         return $this->delete($id);
     }
-    protected $allowedFields = ['year', 'title', 'company', 'website', 'company_logo', 'responsibilities', 'updated_at'];
+    protected $allowedFields = ['title', 'date', 'duration', 'location', 'training_type', 'details', 'updated_at'];
 }

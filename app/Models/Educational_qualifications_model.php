@@ -20,5 +20,5 @@ class Educational_qualifications_model extends Model
     {
         return $this->delete($id);
     }
-    protected $allowedFields = ['degree','subject','academy','session'];
+    protected $allowedFields = ['degree','subject','academy','session','passing_year'];
 }

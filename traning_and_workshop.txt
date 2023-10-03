@@ -1,0 +1,9 @@
+training_and_workshop
+title
+date
+duration
+location
+training_type
+details
+created_at
+updated_at

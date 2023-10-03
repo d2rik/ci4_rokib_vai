@@ -69,7 +69,11 @@ $routes->group('admin', ['filter' => 'isLoggedIn'], function ($routes) {
     $routes->match(['get', 'post'], 'professional_experience_add', 'Admin\Professional_experience::add');
     $routes->match(['get', 'post'], 'professional_experience_edit/(:num)', 'Admin\Professional_experience::edit/$1');
     $routes->get('professional_experience_delete/(:num)', 'Admin\Professional_experience::delete/$1');
-
+    //Training and workshop
+    $routes->get('training_and_workshop', 'Admin\Training_and_workshop::list');
+    $routes->match(['get', 'post'], 'training_and_workshop_add', 'Admin\Training_and_workshop::add');
+    $routes->match(['get', 'post'], 'training_and_workshop_edit/(:num)', 'Admin\Training_and_workshop::edit/$1');
+    $routes->get('training_and_workshop_delete/(:num)', 'Admin\Training_and_workshop::delete/$1');
     //Teaching and mentoring
 
     $routes->match(['get', 'post'], 'teaching_and_mentoring_edit/(:num)', 'Admin\Teaching_and_mentoring::edit/$1');

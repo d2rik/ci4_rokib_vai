@@ -58,6 +58,9 @@ class FrontEnd extends BaseController
         $model = new \App\Models\Professional_experience_model();
         $data['professional_experience'] = $model->get();
 
+        $model = new \App\Models\Training_and_workshop_model();
+        $data['training_and_workshop'] = $model->get();
+
         $model2 = new \App\Models\Educational_qualifications_model();
         $data['educational_qualifications'] = $model2->get();
 
