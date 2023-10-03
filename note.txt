@@ -1,8 +1,0 @@
-database
-    table 1
-        educational_qualifications
-            id, degree, subject , academy, passing_year, created_at, updated_at
-
-education query=  INSERT INTO `educational_qualifications` (`id`, `degree`, `subject`, `academy`, `passing_year`, `created_at`, `updated_at`) VALUES (NULL, 'Secondary School Certificate', 'Science', 'Diargarfa Khairash (D.K.) High School, Natore', '2007 - 2012', current_timestamp(), NULL);
-
-`title`, `link`, `authors`, `conference`
