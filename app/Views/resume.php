@@ -145,7 +145,6 @@
                         <th scope="col" class="px-6 py-3">
                             Speaking
                         </th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -187,44 +186,7 @@
                 SKILLS
             </span>
         </div>
-        <?php foreach ($overall_skills as $item) : ?>
-            <div class="text-base font-bold text-primary mt-4"><?= $item['skill_type'] ?></div>
-            <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-2">
-                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
-                                <?= $item['skill_1'] ?>
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                <?= $item['skill_2'] ?>
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                <?= $item['skill_3'] ?>
-                            </th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <!-- box -->
-                        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                            <td class="px-6 py-4">
-                                <?= $item['skill_1_level'] ?>
-                            </td>
-                            <td class="px-6 py-4">
-                                <?= $item['skill_2_level'] ?>
-                            </td>
-                            <td class="px-6 py-4">
-                                <?= $item['skill_3_level'] ?>
-                            </td>
-                        </tr>
-                        <!--/box -->
-
-                    </tbody>
-                </table>
-            </div>
-        <?php endforeach ?>
     </div>
 </div>
 

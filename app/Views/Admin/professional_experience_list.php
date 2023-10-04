@@ -24,9 +24,6 @@
                     Company logo
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Responsibilities
-                </th>
-                <th scope="col" class="px-6 py-3">
                     Action
                 </th>
                 <th scope="col" class="px-6 py-3">
@@ -54,9 +51,6 @@
                     </td>
                     <td class='px-6 py-4'>
                         <img src="<?= base_url('assets/image/') . $row['company_logo'] ?>" alt="">
-                    </td>
-                    <td class='px-6 py-4'>
-                        <?= $row['responsibilities'] ?>
                     </td>
                     <td class='px-6 py-4'>
                         <a href="<?= base_url('admin/professional_experience_edit/') . $row['id'] ?>" class='hover:bg-blue-50 py-2 px-3 rounded-lg font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>

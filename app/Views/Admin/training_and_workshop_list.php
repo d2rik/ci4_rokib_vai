@@ -24,9 +24,6 @@
                     training_type
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    details
-                </th>
-                <th scope="col" class="px-6 py-3">
                     Action
                 </th>
                 <th scope="col" class="px-6 py-3">
@@ -54,10 +51,6 @@
                     </td>
                     <td class='px-6 py-4'>
                         <?= $row['training_type'] ?>
-                    </td>
-
-                    <td class='px-6 py-4'>
-                        <?= $row['details'] ?>
                     </td>
                     <td class='px-6 py-4'>
                         <a href="<?= base_url('admin/training_and_workshop_edit/') . $row['id'] ?>" class='hover:bg-blue-50 py-2 px-3 rounded-lg font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
