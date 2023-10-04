@@ -34,11 +34,18 @@ $routes->group('admin', ['filter' => 'isLoggedIn'], function ($routes) {
     $routes->match(['get', 'post'], 'blog_add', 'Admin\Blog::add');
     $routes->match(['get', 'post'], 'blog_edit/(:num)', 'Admin\Blog::edit/$1');
     $routes->get('blog_delete/(:num)', 'Admin\Blog::delete/$1');
+
     //research interest
     $routes->get('research_interest', 'Admin\Research_interest::index');
     $routes->match(['get', 'post'], 'research_interest_add', 'Admin\Research_interest::add');
     $routes->match(['get', 'post'], 'research_interest_edit/(:num)', 'Admin\Research_interest::edit/$1');
     $routes->get('research_interest_delete/(:num)', 'Admin\Research_interest::delete/$1');
+
+    //Others interest
+    $routes->get('others_interest', 'Admin\Others_interest::index');
+    $routes->match(['get', 'post'], 'others_interest_add', 'Admin\Others_interest::add');
+    $routes->match(['get', 'post'], 'others_interest_edit/(:num)', 'Admin\Others_interest::edit/$1');
+    $routes->get('others_interest_delete/(:num)', 'Admin\Others_interest::delete/$1');
 
     //theme
     $routes->get('theme', 'Admin\Theme::index');
