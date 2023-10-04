@@ -121,7 +121,7 @@
                                 <a class=" <?= (esc($page_title) == 'Resume') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/resume') ?>">Resume</a>
                             </li>
                             <li>
-                                <a class=" <?= (esc($page_title) == '') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/resume') ?>">Other Interests</a>
+                                <a class=" <?= (esc($page_title) == 'Others interest') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/others_interest') ?>">Other Interests</a>
                             </li>
                             <li>
                                 <a class="<?= (esc($page_title) == 'Blog') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/blog') ?>">Blog</a>

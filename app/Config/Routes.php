@@ -18,6 +18,7 @@ $routes->get('single_blog', 'FrontEnd::single_blog');
 $routes->get('resume', 'FrontEnd::resume');
 $routes->get('social_works', 'FrontEnd::social_works');
 $routes->get('teaching_and_mentoring', 'FrontEnd::teaching_and_mentoring');
+$routes->get('others_interest', 'FrontEnd::others_interest');
 $routes->get('contact_me', 'FrontEnd::contact_me');
 // $routes->get('register', 'FrontEnd::register');
 // $routes->post('register', 'FrontEnd::create_resister');
