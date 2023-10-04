@@ -1,13 +1,2 @@
-test_score_and_certifications
-title
-agency
-date
-expiry_date
-overall_score
-reading
-writing
-listening
-speaking
-analysis
-created_at
-updated_at
+research_interest
+'title','image','description'

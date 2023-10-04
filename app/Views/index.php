@@ -94,7 +94,7 @@
                             </li>
                             <li>
 
-                                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="<?= (esc($page_title) == 'Research and publications') ? 'bg-white text-primary' : 'text-white'; ?> inline-flex items-center px-2 py-1 rounded hover:bg-white hover:text-primary  text-xs" type="button">Research & Publications<svg class="w-2.5 h-2.5 ml-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="<?= (esc($page_title) == 'Research and publications'||esc($page_title) == 'Research interest') ? 'bg-white text-primary' : 'text-white'; ?> inline-flex items-center px-2 py-1 rounded hover:bg-white hover:text-primary  text-xs" type="button">Research & Publications<svg class="w-2.5 h-2.5 ml-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
                                     </svg>
                                 </button>
@@ -106,7 +106,7 @@
                                             <a href="<?= base_url('/research_and_publications') ?>" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Publications</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Research Interest</a>
+                                            <a href="<?= base_url('/research_interest') ?>" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Research Interest</a>
                                         </li>
                                     </ul>
                                 </div>

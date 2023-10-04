@@ -10,6 +10,7 @@ $routes->get('academic_info', 'FrontEnd::academic_info');
 $routes->get('test_score_and_certifications', 'FrontEnd::test_score_and_certifications');
 $routes->get('professional_experience', 'FrontEnd::professional_experience');
 $routes->get('research_and_publications', 'FrontEnd::research_and_publications');
+$routes->get('research_interest', 'FrontEnd::research_interest');
 $routes->get('blog', 'FrontEnd::blog');
 $routes->post('getData', 'Dataaa::getData'); //ajax request
 $routes->get('blog/(:segment)', 'FrontEnd::show_blog');
@@ -32,6 +33,12 @@ $routes->group('admin', ['filter' => 'isLoggedIn'], function ($routes) {
     $routes->match(['get', 'post'], 'blog_add', 'Admin\Blog::add');
     $routes->match(['get', 'post'], 'blog_edit/(:num)', 'Admin\Blog::edit/$1');
     $routes->get('blog_delete/(:num)', 'Admin\Blog::delete/$1');
+    //research interest
+    $routes->get('research_interest', 'Admin\Research_interest::index');
+    $routes->match(['get', 'post'], 'research_interest_add', 'Admin\Research_interest::add');
+    $routes->match(['get', 'post'], 'research_interest_edit/(:num)', 'Admin\Research_interest::edit/$1');
+    $routes->get('research_interest_delete/(:num)', 'Admin\Research_interest::delete/$1');
+
     //theme
     $routes->get('theme', 'Admin\Theme::index');
     $routes->post('theme', 'Admin\Theme::edit');

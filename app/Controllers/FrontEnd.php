@@ -103,6 +103,16 @@ class FrontEnd extends BaseController
         $data['site_info'] = $this->site_info;
         return view('index', $data);
     }
+    public function research_interest($page = 'research interest'): string
+    {
+        $data['page_title'] = ucfirst($page);
+        $data['sub_title'] = strtoupper($page);
+        $model = new \App\Models\Research_interest_model();
+        $data['research_interest'] = $model->get();
+        $data['main_content'] = view('research_interest', $data);
+        $data['site_info'] = $this->site_info;
+        return view('index', $data);
+    }
     public function teaching_and_mentoring($page = 'Teaching and mentoring'): string
     {
         $data['page_title'] = ucfirst($page);
