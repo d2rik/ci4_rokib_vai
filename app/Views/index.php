@@ -70,7 +70,7 @@
             <!-- lg:w-[1010px] -->
             <header class="h-11 m-auto bg-primary px-4 md:rounded">
                 <nav class="h-full w-full flex items-center justify-end lg:justify-center">
-                    <div id="contentToToggle" class="hidden lg:block absolute top-0 lg:top-auto lg:left-auto left-0 bg-primary lg:bg-transparent z-10 px-4 h-screen lg:h-auto ">
+                    <div id="contentToToggle" class="hidden lg:block absolute top-0 lg:top-auto lg:left-auto left-0 bg-primary lg:bg-transparent z-50 px-4 h-screen lg:h-auto ">
                         <div class="flex justify-end items-center py-3 lg:hidden">
                             <div id="closeBtn" class="p-1 rounded-md bg-opacity-50">
                                 <svg class="w-6 h-6 hover:text-red-400 hover:cursor-pointer text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
