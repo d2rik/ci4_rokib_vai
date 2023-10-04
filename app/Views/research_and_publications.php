@@ -16,7 +16,7 @@
                 </a>
                 <div class="text-sm mb-1">
                     <span class="text-primary font-bold">Authors:</span>
-                    <span><?= $item['authors'] ?></span>
+                    <span><?= convertLinks($item['authors']); ?></span>
                 </div>
                 <div class="text-sm">
                     <span class="text-primary font-bold">Conference:</span>

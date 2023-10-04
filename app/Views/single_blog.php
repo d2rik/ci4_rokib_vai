@@ -19,7 +19,7 @@
     </div>
     <div>
       <p>
-        <?= nl2br(esc($blog['blog'])) ?>
+        <?= convertLinks(nl2br(esc($blog['blog']))) ?>
       </p>
     </div>
   </div>

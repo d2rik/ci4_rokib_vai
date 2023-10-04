@@ -38,6 +38,18 @@ class FrontEnd extends BaseController
         $data['site_info'] = $this->site_info;
         return view('index', $data);
     }
+    public function test_score_and_certifications($page = 'Test score and certifications'): string
+    {
+        $data['page_title'] = ucfirst($page);
+        $data['sub_title'] = strtoupper($page);
+        $model = new \App\Models\Test_score_and_certifications_model();
+        $data['test_score_and_certifications'] = $model->get();
+
+
+        $data['main_content'] = view('test_score_and_certifications', $data);
+        $data['site_info'] = $this->site_info;
+        return view('index', $data);
+    }
 
     public function professional_experience($page = 'professional experience'): string
     {

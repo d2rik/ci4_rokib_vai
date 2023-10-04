@@ -35,7 +35,7 @@
             <label class="block text-gray-700 text-sm font-bold mb-2">
                 linkedin
             </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="link3" <?= $site_info['link3'] ?>>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="link3" value="<?= $site_info['link3'] ?>">
         </div>
     </div>
     <div class="flex justify-end items-center">

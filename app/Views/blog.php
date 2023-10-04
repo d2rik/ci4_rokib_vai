@@ -27,8 +27,7 @@
                 </div>
                 <div>
                     <p>
-                        <?= esc(substr($item['blog'], 0, 80)) ?> ...
-
+                        <?= convertLinks(esc(substr($item['blog'], 0, 80))) ?> ...
                         <a href="<?= base_url('blog/') . esc($item['slug']) ?>" class="text-primary hover:text-primary">See more</a>
                     </p>
                 </div>

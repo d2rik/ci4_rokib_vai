@@ -87,7 +87,7 @@
                                 <a class=" <?= (esc($page_title) == 'Academic information') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/academic_info') ?>">Academic Info</a>
                             </li>
                             <li>
-                                <a class=" <?= (esc($page_title) == '') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/academic_info') ?>">Test Scores & Certifications</a>
+                                <a class=" <?= (esc($page_title) == 'Test score and certifications') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/test_score_and_certifications') ?>">Test Scores & Certifications</a>
                             </li>
                             <li>
                                 <a class=" <?= (esc($page_title) == 'Professional experience') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/professional_experience') ?>">Professional Experience</a>

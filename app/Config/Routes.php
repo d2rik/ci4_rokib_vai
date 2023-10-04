@@ -7,6 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'FrontEnd::home');
 $routes->get('academic_info', 'FrontEnd::academic_info');
+$routes->get('test_score_and_certifications', 'FrontEnd::test_score_and_certifications');
 $routes->get('professional_experience', 'FrontEnd::professional_experience');
 $routes->get('research_and_publications', 'FrontEnd::research_and_publications');
 $routes->get('blog', 'FrontEnd::blog');
@@ -69,6 +70,13 @@ $routes->group('admin', ['filter' => 'isLoggedIn'], function ($routes) {
     $routes->match(['get', 'post'], 'professional_experience_add', 'Admin\Professional_experience::add');
     $routes->match(['get', 'post'], 'professional_experience_edit/(:num)', 'Admin\Professional_experience::edit/$1');
     $routes->get('professional_experience_delete/(:num)', 'Admin\Professional_experience::delete/$1');
+
+    //Test score and certifications
+    $routes->get('test_score_and_certifications', 'Admin\Test_score_and_certifications::list');
+    $routes->match(['get', 'post'], 'test_score_and_certifications_add', 'Admin\Test_score_and_certifications::add');
+    $routes->match(['get', 'post'], 'test_score_and_certifications_edit/(:num)', 'Admin\Test_score_and_certifications::edit/$1');
+    $routes->get('test_score_and_certifications_delete/(:num)', 'Admin\Test_score_and_certifications::delete/$1');
+
     //Training and workshop
     $routes->get('training_and_workshop', 'Admin\Training_and_workshop::list');
     $routes->match(['get', 'post'], 'training_and_workshop_add', 'Admin\Training_and_workshop::add');

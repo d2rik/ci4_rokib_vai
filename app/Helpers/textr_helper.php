@@ -16,10 +16,10 @@ function nl2li($text)
 function convertLinks($paragraph)
     {
         // Regular expression to find links inside double parentheses
-        $pattern = '/\(\(([^,]+)##([^)]+)\)\)/';
+        $pattern = '/\(\(([^,]+)#([^)]+)\)\)/';
 
         // Replace the matched pattern with anchor tags
-        $replacement = '<a class="text-primary hover:underline" href="$2">$1</a>';
+        $replacement = '<a target="_blank" class="text-primary hover:underline" href="$2">$1</a>';
 
         // Use preg_replace to replace all occurrences
         $paragraph = preg_replace($pattern, $replacement, $paragraph);
