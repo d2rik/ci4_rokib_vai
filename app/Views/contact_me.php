@@ -23,6 +23,5 @@
             </address>
         </div>
     </div>
-    <iframe class="flex-1 w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110263.61974493592!2d90.35643392837189!3d23.799541999841228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1695913444378!5m2!1sen!2sbd" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    
+    <iframe class="flex-1 w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116961.28778599235!2d90.41025216490709!3d23.638729784534437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b10812a520a3%3A0x6d3af4457bec4c90!2sNarayanganj!5e0!3m2!1sen!2sbd!4v1696489992669!5m2!1sen!2sbd" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
