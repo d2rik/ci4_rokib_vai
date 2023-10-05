@@ -1,4 +1,4 @@
-<div class="grid grid-cols-3 gap-4">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <?php foreach ($items as $item) : ?>
         <div class="p-4 bg-primary rounded shadow flex gap-2 flex-col items-center text-white">
             <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
