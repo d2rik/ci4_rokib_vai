@@ -78,23 +78,23 @@
                                 </svg>
                             </div>
                         </div>
-                        <ul class="list-none flex flex-col lg:flex-row">
+                        <ul class="list-none flex gap-1 flex-col lg:flex-row">
                             <li>
-                                <a class=" <?= (esc($page_title) == 'Home') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/') ?>">
+                                <a class=" <?= (esc($page_title) == 'Home') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  lg:text-xs" href="<?= base_url('/') ?>">
                                     Home</a>
                             </li>
                             <li>
-                                <a class=" <?= (esc($page_title) == 'Academic information') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/academic_info') ?>">Academic Info</a>
+                                <a class=" <?= (esc($page_title) == 'Academic information') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  lg:text-xs" href="<?= base_url('/academic_info') ?>">Academic Info</a>
                             </li>
                             <li>
-                                <a class=" <?= (esc($page_title) == 'Test score and certifications') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/test_score_and_certifications') ?>">Test Scores & Certifications</a>
+                                <a class=" <?= (esc($page_title) == 'Test score and certifications') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  lg:text-xs" href="<?= base_url('/test_score_and_certifications') ?>">Test Scores & Certifications</a>
                             </li>
                             <li>
-                                <a class=" <?= (esc($page_title) == 'Professional experience') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/professional_experience') ?>">Professional Experience</a>
+                                <a class=" <?= (esc($page_title) == 'Professional experience') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  lg:text-xs" href="<?= base_url('/professional_experience') ?>">Professional Experience</a>
                             </li>
                             <li>
 
-                                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="<?= (esc($page_title) == 'Research and publications'||esc($page_title) == 'Research interest') ? 'bg-white text-primary' : 'text-white'; ?> inline-flex items-center px-2 py-1 rounded hover:bg-white hover:text-primary  text-xs" type="button">Research & Publications<svg class="w-2.5 h-2.5 ml-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="<?= (esc($page_title) == 'Research and publications'||esc($page_title) == 'Research interest') ? 'bg-white text-primary' : 'text-white'; ?> inline-flex items-center px-2 py-1 rounded hover:bg-white hover:text-primary  lg:text-xs" type="button">Research & Publications<svg class="w-2.5 h-2.5 ml-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
                                     </svg>
                                 </button>
@@ -112,22 +112,22 @@
                                 </div>
                             </li>
                             <li>
-                                <a class=" <?= (esc($page_title) == 'Teaching and mentoring') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/teaching_and_mentoring') ?>">Teaching & Mentoring</a>
+                                <a class=" <?= (esc($page_title) == 'Teaching and mentoring') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  lg:text-xs" href="<?= base_url('/teaching_and_mentoring') ?>">Teaching & Mentoring</a>
                             </li>
                             <li>
-                                <a class="<?= (esc($page_title) == 'Social Works') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/social_works') ?>">Social Works</a>
+                                <a class="<?= (esc($page_title) == 'Social Works') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  lg:text-xs" href="<?= base_url('/social_works') ?>">Social Works</a>
                             </li>
                             <li>
-                                <a class=" <?= (esc($page_title) == 'Resume') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/resume') ?>">Resume</a>
+                                <a class=" <?= (esc($page_title) == 'Resume') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  lg:text-xs" href="<?= base_url('/resume') ?>">Resume</a>
                             </li>
                             <li>
-                                <a class=" <?= (esc($page_title) == 'Others interest') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/others_interest') ?>">Other Interests</a>
+                                <a class=" <?= (esc($page_title) == 'Others interest') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  lg:text-xs" href="<?= base_url('/others_interest') ?>">Other Interests</a>
                             </li>
                             <li>
-                                <a class="<?= (esc($page_title) == 'Blog') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/blog') ?>">Blog</a>
+                                <a class="<?= (esc($page_title) == 'Blog') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  lg:text-xs" href="<?= base_url('/blog') ?>">Blog</a>
                             </li>
                             <li>
-                                <a class=" <?= (esc($page_title) == 'Contact me') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  text-xs" href="<?= base_url('/contact_me') ?>">Contact</a>
+                                <a class=" <?= (esc($page_title) == 'Contact me') ? 'bg-white text-primary' : 'text-white'; ?> px-2 py-1 rounded block hover:bg-white hover:text-primary  lg:text-xs" href="<?= base_url('/contact_me') ?>">Contact</a>
                             </li>
                         </ul>
                     </div>
