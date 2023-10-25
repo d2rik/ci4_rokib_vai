@@ -23,6 +23,7 @@
                 <h3 class="text-base">
                     <?= esc($item['academy']) ?>
                 </h3>
+                
             </div>
             <!--/box -->
         <?php endforeach ?>
