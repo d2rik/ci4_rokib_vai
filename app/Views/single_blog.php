@@ -15,7 +15,7 @@
       </span>
     </div>
     <div class="my-1">
-      <h1 class="text-lg font-bold"><?= $blog['title'] ?></h1>
+      <h1 class="text-2xl font-bold"><?= $blog['title'] ?></h1>
     </div>
     <div class="ck-content">
       <?= $blog['blog'] ?>
