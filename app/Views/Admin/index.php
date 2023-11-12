@@ -8,7 +8,7 @@
     <!-- <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>"> -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+    <script src="<?= base_url('assets/ckeditor5/ckeditor.js') ?>"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -21,11 +21,65 @@
             }
         }
     </script>
+    <style>
+        /* ckeditor */
+        .ck-content ul {
+            list-style: disc;
+        }
+
+        .ck-content ol {
+            list-style: decimal;
+        }
+
+        .ck-content ul,
+        ol {
+            padding-left: 25px !important;
+            margin: 14px 0 !important;
+        }
+
+        .ck-content a {
+            color: #3366cc !important;
+        }
+
+        .ck-content a:hover {
+            text-decoration: underline !important;
+        }
+
+        .ck-content h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: bolder !important;
+        }
+
+        .ck-content h2 {
+            font-size: 1.5em !important;
+        }
+
+        .ck-content h3 {
+            font-size: 1.17em !important;
+        }
+
+        .ck-content h4 {
+            font-size: 1em !important;
+        }
+
+        .ck-content h5 {
+            font-size: 0.83em !important;
+        }
+
+        .ck-content h6 {
+            font-size: 0.67em !important;
+        }
+
+        /* ckeditor */
+    </style>
     <title>Admin | <?= $page_title ?> | <?= $site_info['name'] ?></title>
 </head>
 
 <body>
-
     <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
         <div class="px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">

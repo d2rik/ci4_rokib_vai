@@ -18,7 +18,7 @@ class Dataaa extends BaseController
                 <!-- box -->
                 <div class="text-center">
                     <a href="<?= base_url('blog/') . esc($item['slug']) ?>">
-                        <img class="w-full rounded hover:scale-105 hover:cursor-pointer transition-all" src="<?= base_url() . src(esc($item['thumbnail']),'blog_image/thumbs') ?>" alt="" />
+                        <img class="w-full rounded hover:scale-105 hover:cursor-pointer transition-all" src="<?= base_url() . src(esc($item['thumbnail']), 'blog_image/thumbs') ?>" alt="" />
                     </a>
                     <div class="mt-2">
                         <div class="">
@@ -37,11 +37,9 @@ class Dataaa extends BaseController
                             <a href="<?= base_url('blog/') . esc($item['slug'], 'url') ?>" class="text-lg font-bold"><?= esc($item['title']) ?></a>
                         </div>
                         <div>
-                            <p>
-                                <?= esc(substr($item['blog'], 0, 80)) ?> ...
 
-                                <a href="<?= base_url('blog/') . esc($item['slug']) ?>" class="text-primary">See more</a>
-                            </p>
+                            <?= substr($item['blog'], 0, 80) ?> ...
+
                         </div>
                     </div>
                 </div>

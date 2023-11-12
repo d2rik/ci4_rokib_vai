@@ -29,6 +29,60 @@
         }
     </script>
     <style>
+        /* ckeditor */
+        .ck-content ul {
+            list-style: disc;
+        }
+
+        .ck-content ol {
+            list-style: decimal;
+        }
+
+        .ck-content ul,
+        ol {
+            padding-left: 25px !important;
+            margin: 14px 0 !important;
+        }
+
+        .ck-content a {
+            color: #3366cc !important;
+        }
+
+        .ck-content a:hover {
+            text-decoration: underline !important;
+        }
+
+        .ck-content h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: bolder !important;
+        }
+
+        .ck-content h2 {
+            font-size: 1.5em !important;
+        }
+
+        .ck-content h3 {
+            font-size: 1.17em !important;
+        }
+
+        .ck-content h4 {
+            font-size: 1em !important;
+        }
+
+        .ck-content h5 {
+            font-size: 0.83em !important;
+        }
+
+        .ck-content h6 {
+            font-size: 0.67em !important;
+        }
+
+        /* ckeditor */
+
         .r-animation {
             position: relative;
         }
@@ -58,7 +112,7 @@
             }
         }
     </style>
-    
+
     <title>Rokibul | <?= esc($page_title) ?></title>
 </head>
 
@@ -94,7 +148,7 @@
                             </li>
                             <li>
 
-                                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="<?= (esc($page_title) == 'Research and publications'||esc($page_title) == 'Research interest') ? 'bg-white text-primary' : 'text-white'; ?> inline-flex items-center px-2 py-1 rounded hover:bg-white hover:text-primary  lg:text-xs" type="button">Research & Publications<svg class="w-2.5 h-2.5 ml-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="<?= (esc($page_title) == 'Research and publications' || esc($page_title) == 'Research interest') ? 'bg-white text-primary' : 'text-white'; ?> inline-flex items-center px-2 py-1 rounded hover:bg-white hover:text-primary  lg:text-xs" type="button">Research & Publications<svg class="w-2.5 h-2.5 ml-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
                                     </svg>
                                 </button>

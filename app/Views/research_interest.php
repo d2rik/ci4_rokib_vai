@@ -6,7 +6,7 @@
 
             <div>
                 <h1 class="text-lg font-bold"><?= $item['title'] ?></h1>
-                <p><?= convertLinks(esc($item['description'])) ?></p>
+                <div class="ck-content"><?= $item['description'] ?></div>
             </div>
 
         </div>

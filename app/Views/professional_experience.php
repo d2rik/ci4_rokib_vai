@@ -24,8 +24,10 @@
                 </div>
                 <h3 class="text-base mt-2">
                     <span class="font-bold">Responsibilities:</span>
-                    <?= convertLinks(nl2li($item['responsibilities'])); ?>
                 </h3>
+                    <div class="ck-content">
+                        <?= $item['responsibilities']; ?>
+                    </div>
             </div>
             <!--/box -->
         <?php endforeach ?>

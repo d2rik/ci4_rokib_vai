@@ -57,8 +57,8 @@
                 </tbody>
             </table>
         </div>
-        <div class="mt-2">
-            <b>Analysis/Remarks: </b> <?= esc($item['analysis']) ?>
+        <div class="mt-2 ck-content">
+            <b>Analysis/Remarks: </b> <?= $item['analysis'] ?>
         </div>
     </div>
     <!--/box -->

@@ -17,10 +17,8 @@
     <div class="my-1">
       <h1 class="text-lg font-bold"><?= $blog['title'] ?></h1>
     </div>
-    <div>
-      <p>
-        <?= convertLinks(nl2br(esc($blog['blog']))) ?>
-      </p>
+    <div class="ck-content">
+      <?= $blog['blog'] ?>
     </div>
   </div>
 </div>

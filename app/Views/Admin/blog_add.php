@@ -27,7 +27,7 @@
             <label class="block text-gray-700 text-sm font-bold mb-2" for="">
                 Blog
             </label>
-            <textarea rows="10" name="blog" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+            <textarea id="blog_area" rows="10" name="blog" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
         </div>
         <div class="mb-4">
             <img class="w-52 border" id="preview_img" src="" alt="">
@@ -39,3 +39,13 @@
     </div>
     <input class="bg-primary cursor-pointer hover:bg-primary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" name="submit" value="Save" />
 </form>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#blog_area'), {
+            removePlugins: ['CKFinder'],
+            toolbar: ['Heading', 'bold', 'italic', 'bulletedList', 'numberedList', 'Link']
+        })
+        .catch(error => {
+            console.log(error);
+        });
+</script>
